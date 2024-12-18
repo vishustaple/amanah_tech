@@ -1,0 +1,30 @@
+.lightbox-body p{
+	margin-bottom: 15px;
+	width:100%;
+}
+
+.payswitch{
+	vertical-align: middle;
+}
+
+@media(max-width: 1000px) {
+	.payswitchbox {
+		 justify-content:center;
+		 display:flex;
+		 align-items: center;
+	}
+}
+
+@media(min-width: 1000px) {
+	.payswitchbox {
+		width:70%;
+	}
+	.paylabel {
+		width:30%;
+	}
+}
+
+.paypal-image {
+		 width:150px;
+		 height:38px;
+}

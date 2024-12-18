@@ -1,0 +1,12 @@
+.lightbox-body a{
+	padding: 10px 45px;
+	background: #19426D;
+	color: white;
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	text-align: center;
+}
+.lightbox-body a:hover{
+	opacity:0.8;
+}

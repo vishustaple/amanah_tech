@@ -1,0 +1,736 @@
+URL: https://billing.amanah.com/api/2.0//?method=order.create
+POST Fields: Array
+(
+    [order_queue_id] => 7
+    [order_form_id] => 7
+    [order_status] => 25
+    [info[pack1][plan_id]] => 70
+    [info[pack1][options][1274]] => 2105
+    [info[pack1][options][1271]] => 2106
+    [info[pack1][options][1259]] => 2019
+    [info[pack1][options][1279]] => 2084
+)
+
+Response: Array
+(
+    [order_id] => 6449
+    [data] => Array
+        (
+            [ts] => 1522210330
+            [order_form_id] => 7
+            [order_queue_id] => 7
+            [order_status] => 26
+            [priority] => 1
+            [owner] => 
+            [client_id] => 3704
+            [listed_company] => 
+            [total] => 111.75
+            [hash] => c2db6-b6d93
+            [activity] => 1522210330
+            [opportunity_id] => 0
+            [requested_completion] => 0
+            [planned_completion] => 0
+            [progress] => Array
+                (
+                    [30] => Array
+                        (
+                            [status] => complete
+                            [ts] => 1522210330
+                            [user] => system
+                        )
+
+                )
+
+            [info] => Array
+                (
+                    [pack1] => Array
+                        (
+                            [plan_id] => 70
+                            [options] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [title] => Colo 1U
+                            [period] => 1
+                            [bill_type] => 0
+                            [auto_bill] => 0
+                            [quantity] => 1
+                            [desserv] => Colo 1U
+                            [tax_engine_id] => 0
+                            [coupon] => 
+                            [price] => 99.00
+                            [setup] => 99.00
+                            [prorate_date] => 1522555200
+                            [taxes] => Array
+                                (
+                                )
+
+                            [setup_taxes] => Array
+                                (
+                                )
+
+                            [cost] => 99
+                            [total_setup] => 99
+                            [prorated_total] => 12.75
+                            [prorate_bal] => 12.75
+                            [option] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [monthly_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [setup_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [options_desc] => Array
+                                (
+                                    [1274] => Toronto - 1 Yonge Street (Default)
+                                    [1271] => 30TB/100Mbps Uplink (Default)
+                                    [1259] => /29 - 5 Usable IPs (Default)
+                                    [1279] => No additional Amp (Default)
+                                )
+
+                            [groups_desc] => Array
+                                (
+                                    [1274] => Datacenter Location
+                                    [1271] => Bandwidth
+                                    [1259] => IP`s
+                                    [1279] => Power
+                                )
+
+                            [option_inv_hide] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_setup_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_setup_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                        )
+
+                    [taxes] => Array
+                        (
+                        )
+
+                    [coupon_credits] => Array
+                        (
+                        )
+
+                    [coupon_ids] => Array
+                        (
+                        )
+
+                    [clientid] => 3704
+                    [first] => 
+                    [last] => 
+                    [checkname] => 
+                    [company] => 
+                    [address] => 
+                    [city] => 
+                    [state] => 
+                    [zip] => 
+                    [phone] => 
+                    [fax] => 
+                    [ss] => 
+                    [email] => 
+                    [comments] => 
+                    [country] => 
+                    [balance] => 0
+                    [credit_balance] => 0
+                    [acct_balance] => 0
+                    [datesend] => 28
+                    [datepay] => 25
+                    [password] => {ssha1}NAn41qrffaxd1foHJkxvmxSbA350ZXNJ
+                    [active] => 1
+                    [permnote] => 
+                    [tempnote] => 
+                    [priority] => 1
+                    [class_id] => 1
+                    [login] => 
+                    [access] => Array
+                        (
+                            [client_profile] => edit
+                            [view_profile] => edit
+                            [view_billing_info] => edit
+                            [change_password] => view
+                            [manage_contacts] => edit
+                            [manage_contact_facilities] => edit
+                            [billing_services] => edit
+                            [view_invoice] => edit
+                            [view_service] => edit
+                            [view_tax_exemptions] => edit
+                            [view_credits] => edit
+                            [view_orders] => edit
+                            [paypal_subscriptions] => edit
+                            [view_quotes] => edit
+                            [billing_email] => edit
+                            [reports] => edit
+                            [event_log] => edit
+                            [ledger_event_log] => edit
+                            [mail_log] => edit
+                            [domain_management] => edit
+                            [list_domains] => edit
+                            [lookup_domain] => edit
+                            [support] => edit
+                            [view_tickets] => edit
+                            [submit_new_ticket] => edit
+                            [view_all_tickets] => view
+                            [search_ticket] => view
+                            [device_manager] => edit
+                            [view_device] => edit
+                            [view_racks] => edit
+                            [view_cages] => edit
+                            [view_facilities] => edit
+                            [view_ip_addresses] => edit
+                        )
+
+                    [retry_every] => 1
+                    [referred] => 
+                    [referred_by] => 0
+                    [credit_bool] => 0
+                    [discount] => 0.00
+                    [latest_inv] => 0
+                    [datedue] => 1
+                    [grace_due] => 0
+                    [listed_company] => 
+                    [full_name] =>  
+                    [created] => 1522210330
+                    [password_timeout] => 1522210330
+                    [password_changed] => 1522210330
+                    [charge_days] => -1
+                    [discount_type] => 0
+                    [qblistid] => 
+                    [qbeditseq] => 
+                    [prefer_lang] => 0
+                    [acctmgr] => 
+                    [salesperson] => 
+                    [late_fee_scheme_id] => 1
+                    [invoice_delivery] => 1
+                    [business] => 0
+                    [prebill_method] => 1
+                    [prebill_days] => 0
+                    [default_renew] => 1
+                    [prorate_min_days] => 1
+                    [auto_apply_credit] => 1
+                    [inv_balance] => 0
+                )
+
+            [signature] => 
+        )
+
+    [data_changed] => 
+    [trigger_updated_event] => 1
+    [step] => Array
+        (
+            [order_step_id] => 26
+            [data] => Array
+                (
+                    [order_step_id] => 26
+                    [order_queue_id] => 7
+                    [name] => Processing
+                    [priority] => 2
+                    [status] => 0
+                    [i18n] => Array
+                        (
+                            [1] => Array
+                                (
+                                    [lang_id] => 1
+                                    [name] => Processing
+                                )
+
+                        )
+
+                )
+
+            [queue] => 
+            [i18n_column] => Array
+                (
+                    [0] => name
+                )
+
+            [non_editable_steps] => Array
+                (
+                    [0] => 1
+                    [1] => 2
+                    [2] => 3
+                )
+
+        )
+
+    [queue] => Array
+        (
+            [order_queue_id] => 7
+            [data] => Array
+                (
+                    [order_queue_id] => 7
+                    [class_id] => 1
+                    [active] => 1
+                    [name] => Test Pro-rate
+                    [allow_quotes] => 1
+                    [sendlink_from] => sales@amanah.com
+                    [sendlink_sub] => 
+                    [sendlink_body] => 
+                    [confirmation_type] => 1
+                    [confirmation_url] => 
+                    [confirmation_autopay_success] => 
+                    [confirmation_autopay_failure] => 
+                    [confirmation_manualpay] => 
+                    [i18n] => Array
+                        (
+                            [1] => Array
+                                (
+                                    [lang_id] => 1
+                                    [name] => Test Pro-rate
+                                    [sendlink_sub] => 
+                                    [sendlink_body] => 
+                                    [confirmation_autopay_success] => 
+                                    [confirmation_autopay_failure] => 
+                                    [confirmation_manualpay] => 
+                                )
+
+                        )
+
+                )
+
+            [order_queue_fields] => Array
+                (
+                    [0] => class_id
+                    [1] => active
+                    [2] => name
+                    [3] => allow_quotes
+                    [4] => sendlink_from
+                    [5] => sendlink_sub
+                    [6] => sendlink_body
+                    [7] => confirmation_type
+                    [8] => confirmation_url
+                )
+
+            [i18n_column] => Array
+                (
+                    [0] => name
+                    [1] => sendlink_sub
+                    [2] => sendlink_body
+                    [3] => confirmation_autopay_success
+                    [4] => confirmation_autopay_failure
+                    [5] => confirmation_manualpay
+                )
+
+        )
+
+    [form] => Array
+        (
+            [id] => 7
+            [data] => Array
+                (
+                    [order_form_id] => 7
+                    [order_queue_id] => 7
+                    [active] => 1
+                    [priority] => 0
+                    [name] => Pro-rating Order Form (dev test)
+                    [plan_id] => 70
+                    [config] => Array
+                        (
+                            [auto_generate_pass] => 1
+                            [existing_client_check] => 0
+                            [billing_settings] => Array
+                                (
+                                    [prorate_bool] => 1
+                                    [prorate_day] => 1
+                                    [extended_prorate_day] => 0
+                                    [coupon_bool] => 1
+                                    [coupon_option] => 0
+                                    [accept_cc] => 1
+                                    [accept_paypal] => 1
+                                    [extended_prorate_bool] => 0
+                                    [accept_ach_prior_auth] => 0
+                                    [accept_ach_onsubmit] => 0
+                                    [accept_phone] => 0
+                                    [accept_check] => 0
+                                    [pay_phone] => Array
+                                        (
+                                            [default] => 
+                                            [display] => 1
+                                            [change] => 0
+                                        )
+
+                                    [remit_to] => Array
+                                        (
+                                            [default] => Amanah Tech Inc.
+151 front Street West
+Toronto, ON, Canada 
+
+                                            [display] => 1
+                                            [change] => 0
+                                        )
+
+                                )
+
+                            [template] => 
+                            [affiliate_settings] => Array
+                                (
+                                    [idev_url] => 
+                                    [idev_variable_name_1] => 
+                                    [idev_variable_value_1] => 
+                                    [idev_variable_name_2] => 
+                                    [idev_variable_value_2] => 
+                                    [idev_variable_name_3] => 
+                                    [idev_variable_value_3] => 
+                                )
+
+                        )
+
+                    [defaults] => 
+                    [header] => 
+                    [footer] => 
+                    [css] => 
+th.hdr {
+
+}
+
+#group_buttons td {
+
+}
+
+td.label {
+
+}
+
+                )
+
+            [queue] => 
+        )
+
+    [summary] => Array
+        (
+            [total_setup] => 99
+            [total_price] => 99
+            [prorated_total] => 12.75
+            [total_price_discount] => 0
+            [total_setup_discount] => 0
+            [pack] => Array
+                (
+                )
+
+            [taxes] => Array
+                (
+                )
+
+            [prorated_dates] => Array
+                (
+                    [Apr/01/2018] => Apr/01/2018
+                )
+
+            [coupon_credits] => Array
+                (
+                )
+
+        )
+
+    [orig_data] => Array
+        (
+            [ts] => 1522210330
+            [order_form_id] => 7
+            [order_queue_id] => 7
+            [order_status] => 26
+            [priority] => 1
+            [owner] => 
+            [client_id] => 3704
+            [listed_company] => 
+            [total] => 111.75
+            [hash] => c2db6-b6d93
+            [activity] => 1522210330
+            [opportunity_id] => 0
+            [requested_completion] => 0
+            [planned_completion] => 0
+            [progress] => Array
+                (
+                    [30] => Array
+                        (
+                            [status] => complete
+                            [ts] => 1522210330
+                            [user] => system
+                        )
+
+                )
+
+            [info] => Array
+                (
+                    [pack1] => Array
+                        (
+                            [plan_id] => 70
+                            [options] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [title] => Colo 1U
+                            [period] => 1
+                            [bill_type] => 0
+                            [auto_bill] => 0
+                            [quantity] => 1
+                            [desserv] => Colo 1U
+                            [tax_engine_id] => 0
+                            [coupon] => 
+                            [price] => 99.00
+                            [setup] => 99.00
+                            [prorate_date] => 1522555200
+                            [taxes] => Array
+                                (
+                                )
+
+                            [setup_taxes] => Array
+                                (
+                                )
+
+                            [cost] => 99
+                            [total_setup] => 99
+                            [prorated_total] => 12.75
+                            [prorate_bal] => 12.75
+                            [option] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [monthly_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [setup_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [options_desc] => Array
+                                (
+                                    [1274] => Toronto - 1 Yonge Street (Default)
+                                    [1271] => 30TB/100Mbps Uplink (Default)
+                                    [1259] => /29 - 5 Usable IPs (Default)
+                                    [1279] => No additional Amp (Default)
+                                )
+
+                            [groups_desc] => Array
+                                (
+                                    [1274] => Datacenter Location
+                                    [1271] => Bandwidth
+                                    [1259] => IP`s
+                                    [1279] => Power
+                                )
+
+                            [option_inv_hide] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_setup_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_setup_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                        )
+
+                    [taxes] => Array
+                        (
+                        )
+
+                    [coupon_credits] => Array
+                        (
+                        )
+
+                    [coupon_ids] => Array
+                        (
+                        )
+
+                    [clientid] => 3704
+                    [first] => 
+                    [last] => 
+                    [checkname] => 
+                    [company] => 
+                    [address] => 
+                    [city] => 
+                    [state] => 
+                    [zip] => 
+                    [phone] => 
+                    [fax] => 
+                    [ss] => 
+                    [email] => 
+                    [comments] => 
+                    [country] => 
+                    [balance] => 0
+                    [credit_balance] => 0
+                    [acct_balance] => 0
+                    [datesend] => 28
+                    [datepay] => 25
+                    [password] => {ssha1}NAn41qrffaxd1foHJkxvmxSbA350ZXNJ
+                    [active] => 1
+                    [permnote] => 
+                    [tempnote] => 
+                    [priority] => 1
+                    [class_id] => 1
+                    [login] => 
+                    [access] => Array
+                        (
+                            [client_profile] => edit
+                            [view_profile] => edit
+                            [view_billing_info] => edit
+                            [change_password] => view
+                            [manage_contacts] => edit
+                            [manage_contact_facilities] => edit
+                            [billing_services] => edit
+                            [view_invoice] => edit
+                            [view_service] => edit
+                            [view_tax_exemptions] => edit
+                            [view_credits] => edit
+                            [view_orders] => edit
+                            [paypal_subscriptions] => edit
+                            [view_quotes] => edit
+                            [billing_email] => edit
+                            [reports] => edit
+                            [event_log] => edit
+                            [ledger_event_log] => edit
+                            [mail_log] => edit
+                            [domain_management] => edit
+                            [list_domains] => edit
+                            [lookup_domain] => edit
+                            [support] => edit
+                            [view_tickets] => edit
+                            [submit_new_ticket] => edit
+                            [view_all_tickets] => view
+                            [search_ticket] => view
+                            [device_manager] => edit
+                            [view_device] => edit
+                            [view_racks] => edit
+                            [view_cages] => edit
+                            [view_facilities] => edit
+                            [view_ip_addresses] => edit
+                        )
+
+                    [retry_every] => 1
+                    [referred] => 
+                    [referred_by] => 0
+                    [credit_bool] => 0
+                    [discount] => 0.00
+                    [latest_inv] => 0
+                    [datedue] => 1
+                    [grace_due] => 0
+                    [listed_company] => 
+                    [full_name] =>  
+                    [created] => 1522210330
+                    [password_timeout] => 1522210330
+                    [password_changed] => 1522210330
+                    [charge_days] => -1
+                    [discount_type] => 0
+                    [qblistid] => 
+                    [qbeditseq] => 
+                    [prefer_lang] => 0
+                    [acctmgr] => 
+                    [salesperson] => 
+                    [late_fee_scheme_id] => 1
+                    [invoice_delivery] => 1
+                    [business] => 0
+                    [prebill_method] => 1
+                    [prebill_days] => 0
+                    [default_renew] => 1
+                    [prorate_min_days] => 1
+                    [auto_apply_credit] => 1
+                    [inv_balance] => 0
+                )
+
+            [signature] => 
+        )
+
+    [quote] => 
+)

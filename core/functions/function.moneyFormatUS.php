@@ -1,0 +1,1 @@
+<?phpfunction moneyFormatUS($amount){	return ('$' . number_format($amount, 2, '.', ','));}

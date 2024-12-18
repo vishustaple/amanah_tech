@@ -1,0 +1,248 @@
+<?php
+session_start();
+error_reporting(0);
+require_once(dirname(__FILE__) .'/core/config.php');
+require_once(dirname(__FILE__) .'/core/functions.php');
+require_once(dirname(__FILE__) .'/core/classes.php');
+require_once(dirname(__FILE__) .'/core/Savant3.php');
+
+$client = new uber_api_client($_API_USER,$_API_PASS);
+
+setlocale(LC_MONETARY, 'en_US');
+
+//Start the template engine
+$tpl = new Savant3();
+$tpl->session=$_SESSION;
+$coupon = null;
+
+if($_POST["s"]=="")
+{
+	$orderID=$_GET["forder"];
+	$order = $client->call($_UBER_API_URL,'order.get',array(
+		'hash' => $orderID,
+		)
+	);
+
+	//Make sure the client assignment is valid
+	//This should never happen
+	if($_SESSION[$_REQUEST["forder"]] != $order["client_id"]){
+		//print_r($_SESSION); die();
+		header("Location: addplan.php?forder=" . $_REQUEST["forder"]);
+	}
+
+	if(is_array($order["info"]["pack1"]["coupon"])){
+		$coupon = $client->call($_UBER_API_URL,'order.coupon_get',array(
+			'coupon_id' => $order["info"]["pack1"]["coupon"]["coupon_id"],
+			)
+		); //print_r($order); die();
+	}
+
+	$clientData = $client->call($_UBER_API_URL,'client.get',array(
+		'client_id' => $order["client_id"] ,
+	));
+
+	//Otherwise continue
+	$pack = $client->call($_UBER_API_URL,'uber.service_plan_get',array(
+		'plan_id' => $order["info"]["pack1"]["plan_id"],
+		)
+	);
+
+	$priceData = new PriceData($pack,$order,$coupon);
+	$priceJSON = $priceData->toJSON();
+	$tpl->priceJSON=$priceJSON;
+	$tpl->forder=$_REQUEST["forder"];
+	$tpl->title = $pack["title"];
+	//$tpl->period = $pack["period"];
+        $tpl->period = $order["info"]["pack1"]["period"];
+	$tpl->quantity = $order["info"]["pack1"]["quantity"];
+	$tpl->packPrice = $priceData->packRec;
+	$tpl->packTotal = $priceData->packRec * $order["info"]["pack1"]["quantity"];
+	$tpl->packSetup = $priceData->packSetup;
+	$tpl->totalSetup = floatval($priceData->packSetup) * intval($order["info"]["pack1"]["quantity"]);
+	$tpl->subTotal = $priceData->subTotal;
+
+	//Load client data if it exists
+	$tpl->fname=$clientData["first"];
+	$tpl->lname=$clientData["last"];
+	$tpl->email=$clientData["email"];
+	$tpl->phone=$clientData["phone"];
+	$tpl->address=$clientData["address"];
+	$tpl->city=$clientData["city"];
+	$tpl->state=$clientData["state"];
+	$tpl->postal=$clientData["zip"];
+	$tpl->country=$clientData["country"];
+	$tpl->company=$clientData["company"];
+
+	$tpl->_TAX_RATE = $_TAX_RATE;
+
+	//Always display the actual total, display errors are better than billing errors. 
+	$tpl->total = $order["total"]; 
+
+	$tpl->email = $clientData["email"];
+
+
+	$tpl->details = array();
+	foreach($order["info"]["pack1"]["options"] as $groupId=>$optId){
+		$tpl->details[$groupId] = array(
+			"price"=>$priceData->upgrades[$optId]->price,
+			"setup"=>$priceData->upgrades[$optId]->setup,
+			"title"=>$pack["upgrades"][$groupId]["options"][$optId]["spo_description"],
+		);
+	}
+
+	$tpl->display('tpl/' . $_TEMPLATE . '/checkout.tpl.php');
+}
+else{
+	//Make sure the user is authed
+	$orderID=$_REQUEST["forder"];
+	$order = $client->call($_UBER_API_URL,'order.get',array(
+		'hash' => $orderID,
+		)
+	);
+
+	//Make sure the client assignment is valid
+	//This should never happen
+	if($_SESSION[$_REQUEST["forder"]] != $order["client_id"]){
+		//print_r($_SESSION); die();
+		header("Location: addplan.php?forder=" . $_REQUEST["forder"]);
+	}
+
+	//Update the client
+	//Enter the credit card information in the system
+	$name=explode(' ',$_POST["ccName"]);
+	$fname=$name[0];
+	$lname=$name[sizeof($name)-1];
+	$modifyClient = $client->call($_UBER_API_URL,'client.update',array(
+		'client_id' => $order["client_id"], 
+		'first' => $_POST["fname"],
+		'last' => $_POST["lname"],
+		'company' => $_POST["company"],
+		'address' => $_POST["address"],
+		'city' => $_POST["city"],
+		'state' => $_POST["state"],
+		'zip' => $_POST["zip"],
+		'country' => $_POST["country"],
+		'phone' => $_POST["phone"],
+		'email' => $_POST["email"],
+	)); 
+
+	if($_POST["pm"] == "cc"){
+		//Enter the credit card information in the system
+		$name=explode(' ',$_POST["ccName"]);
+		$fname=$name[0];
+		$lname=$name[sizeof($name)-1];
+		$newCC = $client->call($_UBER_API_URL,'client.cc_add',array(
+			'cc_num' => $_POST["ccNum"], 
+			'cc_expire' => ($_POST["ccm"] . $_POST["ccy"]), 
+			'cc_cvv2' => $_POST["cccvv2"], 
+			'fname' => $fname,
+			'lname' => $lname,
+			'company' => $_POST["company"],
+			'address' => $_POST["address"] . " " . $_POST["address2"],
+			'city' => $_POST["city"],
+			'state' => $_POST["state"],
+			'zip' => $_POST["zip"],
+			'country' => $_POST["country"],
+			'phone' => $_POST["phone"],
+			'email' => $_POST["email"],
+		)); 
+		if(isset($_REQUEST['forder']))
+		{
+			//Assign the stored CC id to the order
+			$assignCC = $client->call($_UBER_API_URL,'order.update',array(
+				'hash' => $orderID,
+				'card_stored' => '1' ,
+				'card_id' => $newCC ,
+				'info' => array(
+					'payment_type' => 'charge_prior_auth'
+				),
+			));
+			
+		}
+	}
+	if($_POST["pm"]=="storedCC"){
+		if(isset($_REQUEST['forder']))
+		{
+			//Make sure that it is a valid card ID
+			if(preg_match('/^[0-9]+$/',$_POST['CCID']))
+			{
+				//Assign the stored CC id to the order
+				$assignCC = $client->call($_UBER_API_URL,'order.update',array(
+					'hash' => $orderID,
+					'card_stored' => '1' ,
+					'card_id' => $_POST['CCID'],
+					'info' => array(
+						'payment_type' => 'charge_prior_auth'
+					),
+				));
+			}
+			else
+			{
+				//Invalid card ID
+			}
+		}
+	}
+	if($_POST["pm"]=="pp"){
+		if(isset($_REQUEST['forder']))
+		{
+			//Assign the stored CC id to the order
+			$paypal = $client->call($_UBER_API_URL,'order.update',array(
+				'hash' => $orderID,
+				'info' => array(
+					'payment_type' => 'paypal'
+				),
+			));
+		}
+		
+	}
+
+	//Assign relevant tax rates
+	$taxarr = array();
+	if($_POST["country"]=="CA" && $_POST["state"]=="ON"){
+		$taxarr[$_TAX_IDS["CAN-ON"]]=1;
+	} else if($_POST["country"]=="CA") {
+		$taxarr[$_TAX_IDS["CAN-REST"]]=1;
+	} 
+	$assignTax = $client->call($_UBER_API_URL,'order.update',array(
+		'hash' => $orderID,
+		'info' => array(
+			'pack1' => array(
+				'taxes' => $taxarr,
+				'setup_taxes'=>$taxarr,
+			),
+		),
+	));
+
+	//Submit the order
+	if(isset($_REQUEST['forder']))
+	{
+
+		//Assign the stored CC id to the order
+		$submit = $client->call($_UBER_API_URL,'order.submit',array(
+			'hash' => $orderID,
+		));// print_r($submit); die();
+		
+		// Get order info
+		$getOrder = $client->call($_UBER_API_URL,'order.get',array(
+			'hash' => $orderID,
+		)); 
+		
+		//If payment if via PayPal, get some info to display to the user
+		$tpl->total=$getOrder["total"];
+		if($getOrder["info"]["payment_type"] == 'paypal')
+		{
+			$delStart=strpos($submit,'<p>');
+			$delEnd=strpos($submit,'<input type="submit"');
+
+			$tpl->button=substr($submit,0,$delStart) . substr($submit,$delEnd);
+
+			//Replace the return addresses from the default. 
+			$tpl->paypal=true;
+		}
+		$tpl->orderID=$getOrder["order_id"];
+		$tpl->email=$getOrder["info"]["email"];
+		$tpl->display('tpl/' . $_TEMPLATE . '/submit.tpl.php');
+	}
+}
+
+?>
