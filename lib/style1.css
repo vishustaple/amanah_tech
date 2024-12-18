@@ -70,7 +70,7 @@ body{
 #orderForm .action-button {
     width: 100px;
     background: #1b416f;
-    font-weight: bold;
+    font-weight: 400;
     color: white;
     border: 0 none;
     border-radius: 0px;
@@ -82,13 +82,13 @@ body{
 
 #orderForm .action-button:hover,
 #orderForm .action-button:focus {
-    background-color: #311B92
+    background-color: #183b65
 }
 
 #orderForm .action-button-previous {
     width: 100px;
     background: #616161;
-    font-weight: bold;
+    font-weight: 400;
     color: white;
     border: 0 none;
     cursor: pointer;
@@ -137,7 +137,8 @@ body{
 #progressbar {
     margin-bottom: 0px;
     overflow: hidden;
-    color: lightgrey
+    color: lightgrey;
+    padding: 0px;
 }
 
 #progressbar .active {
@@ -155,17 +156,17 @@ body{
 
 #progressbar #account:before {
     font-family: FontAwesome;
-    content: "\f13e"
+    content: "\f00c"
 }
 
 #progressbar #personal:before {
     font-family: FontAwesome;
-    content: "\f007"
+    content: "\f00c"
 }
 
 #progressbar #payment:before {
     font-family: FontAwesome;
-    content: "\f030"
+    content: "\f00c"
 }
 
 #progressbar #confirm:before {
@@ -184,11 +185,13 @@ body{
     content: "\f00c"
 }
 
-
+#progressbar li.active:before {
+    font-size: 14px;
+}
 #progressbar li:before {
     width: 26px;
     height: 26px;
-    line-height: 45px;
+    line-height: 21px;
     display: block;
     font-size: 0px;
     color: #ffffff;
@@ -247,9 +250,9 @@ body{
 .card_title {
     background-color: #1b416f;
     padding: 14px 10px;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 0px;
-    font-weight: bold;
+    font-weight: 400 !important;
     color: #fff;
 }
 .items_list h5 {
@@ -622,7 +625,7 @@ span.summary-list-item-label {
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .form-row {
@@ -638,6 +641,7 @@ span.summary-list-item-label {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
+  font-size: 14px;
 }
 
 .signup-container  label span {
@@ -863,6 +867,12 @@ input#signatureInput {
 }
 .terms_card p a {
     color: #deffbe !important;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.summary_sidebar 
+ label {
+    font-weight: 700;
 }
 
 /* Keyframes for spinning animation */
@@ -917,4 +927,18 @@ div#policy_contant1, div#policy_contant2 {
 
 #click_checkout_pre {
     display: none;
+}
+.order_hide_title 
+ h5.card_title {
+    display: none;
+}
+.coupon-error {
+    color: #EE1111;
+    background-color: #ee11111f;
+    margin-left: 11px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    position: relative;
+    top: -7px;
+    font-size: 12px;
 }
