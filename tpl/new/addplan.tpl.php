@@ -206,7 +206,7 @@
 													
 												</div>
 												<div class="coupen_code pb-2 d-flex gap-2 justify-space-between">
-														<input type="text" name="coupon" id="summaryCoupon" placeholder="Coupen Code">
+														<input type="text" name="coupon" id="summaryCoupon" placeholder="Coupon Code">
 														<button class="apply_btn coupon-button ajaxUpdateOrder1">Apply</button>
 													</div>
 													<span class="coupon-msg disp-none">Voucher <span class="coupon-msg-code"></span> applied (<span class="coupon-msg-desc"></span>) <br /> </span>
