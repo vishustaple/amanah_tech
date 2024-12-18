@@ -182,7 +182,13 @@
 							<div class="form-card">
 								<div class="row">
 									<div class="col-lg-9">
-										<div class="card_list order_summary_title"></div>
+									<div class="terms_card">
+											<div class="d-flex justify-content-between align-items-center">
+												<h5 class="card_title">Order Summary</h5>
+												<p class="m-0 pe-3 "><a href="javascript:void(0);" id="" class="text-white text-uppercase">Reconfigure</a></p>
+											</div>
+											</div>
+										<div class="card_list order_hide_title order_summary_title"></div>
 									</div>
 									<div class="col-lg-3">
 										<div class="side_panel">
@@ -200,7 +206,7 @@
 													
 												</div>
 												<div class="coupen_code pb-2 d-flex gap-2 justify-space-between">
-														<input type="text" name="coupon" id="summaryCoupon" placeholder="Coupen Code">
+														<input type="text" name="coupon" id="summaryCoupon" placeholder="Coupon Code">
 														<button class="apply_btn coupon-button ajaxUpdateOrder1">Apply</button>
 													</div>
 													<span class="coupon-msg disp-none">Voucher <span class="coupon-msg-code"></span> applied (<span class="coupon-msg-desc"></span>) <br /> </span>
@@ -477,7 +483,7 @@
 											</div>
 											<div class="form-group checkbox-group">
 												<input type="checkbox" id="marketing-consent">
-												<label for="marketing-consent">ServerMania may use my contact data to keep me informed of products, services and offerings</label>
+												<label for="marketing-consent">Amanah may use my contact data to keep me informed of products, services and offerings</label>
 											</div>
 											<button type="submit" class="signup-button login-button">SIGN UP</button>
 											<p class="disclaimer">
