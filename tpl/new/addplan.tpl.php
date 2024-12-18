@@ -215,11 +215,11 @@
 													<div class="payment-details">
 														<div>
 															<span class="summary-list-item-label">First Payment</span>
-															<span class="summary-list-item-price format-price order-subtotal-price"></span>
+															<span class="summary-list-item-price format-price total-price"></span>
 														</div>
 														<div>
-															<span class="summary-list-item-label">Monthly Cost</span>
-															<span class="summary-list-item-price format-price total-price"></span>
+															<span class="summary-list-item-label perioud_cost">Monthly Cost</span>
+															<span class="summary-list-item-price format-price order-subtotal-price"></span>
 														</div>
 													</div>
 													<!-- <button class="btn-summary">PROCEED TO SUMMARY</button> -->
@@ -372,11 +372,11 @@
 													<div class="payment-details">
 														<div>
 															<span class="summary-list-item-label">First Payment</span>
-															<span class="summary-list-item-price format-price order-subtotal-price"></span>
+															<span class="summary-list-item-price format-price total-price"></span>
 														</div>
 														<div>
-															<span class="summary-list-item-label">Monthly Cost</span>
-															<span class="summary-list-item-price format-price total-price"></span>
+															<span class="summary-list-item-label perioud_cost">Monthly Cost</span>
+															<span class="summary-list-item-price format-price order-subtotal-price"></span>
 														</div>
 													</div>
 													<button class="btn-summary" id="checkout_next">PROCEED TO CHECKOUT</button>
