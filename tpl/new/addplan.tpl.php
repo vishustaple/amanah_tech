@@ -210,7 +210,7 @@
 														<button class="apply_btn coupon-button ajaxUpdateOrder1">Apply</button>
 													</div>
 													<span class="coupon-msg disp-none">Voucher <span class="coupon-msg-code"></span> applied (<span class="coupon-msg-desc"></span>) <br /> </span>
-													<span class="coupon-error disp-none">Coupon Does not Exist.<br /></span>
+													<span class="coupon-error disp-none">Coupon Does not Exist. <i class="fa-solid fa-xmark"></i><br /></span>
 													<!-- <span class="voucher-disclainer">*Voucher disclaimer specifying details goes here.</span> -->
 												<div class="summary-section">
 													<h4>Order Summary</h4>
@@ -236,8 +236,8 @@
 								</div>
 							</div>
 							<!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
-							<input type="button" name="next" class="next action-button" value="Proceed to Terms and Policies" />
-							<input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+							<input type="button" name="next" class="next action-button " value="Proceed to Terms and Policies" />
+							<input type="button" name="previous" class="previous action-button-previous d-none" value="Previous" />
 						</fieldset>
 						<fieldset>
 							<div class="form-card">
@@ -392,7 +392,7 @@
 									</div>
 								</div>
 							</div>
-							<input type="button" name="next" class="next action-button" id="click_checkout_next" value="PROCEED TO CHECKOUT" />
+							<input type="button" name="next" class="next action-button d-none" id="click_checkout_next" value="PROCEED TO CHECKOUT" />
 							<input type="button" name="previous" class="previous action-button-previous" id="click_checkout_pre" value="Previous" />
 						</fieldset>
 
@@ -493,8 +493,8 @@
 									</div>
 								</div>
 							</div>
-							<input type="button" name="next" class="next action-button" value="Next" />
-							<input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+							<input type="button" name="next" class="next action-button d-none" value="Next" />
+							<input type="button" name="previous" class="previous action-button-previous  d-none" value="Previous" />
 						</fieldset>
 					</form>
 				</div>
