@@ -927,7 +927,7 @@ div#policy_contant1, div#policy_contant2 {
     display: none;
 }
 
-#click_checkout_pre {
+#click_checkout_pre, #click_checkout_pre_one {
     display: none;
 }
 .order_hide_title 

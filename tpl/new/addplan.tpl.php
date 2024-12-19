@@ -185,7 +185,7 @@
 									<div class="terms_card">
 											<div class="d-flex justify-content-between align-items-center">
 												<h5 class="card_title">Order Summary</h5>
-												<p class="m-0 pe-3 "><a href="javascript:void(0);" id="" class="text-white text-uppercase">Reconfigure</a></p>
+												<p class="m-0 pe-3 "><a href="javascript:void(0);" id="checkout_pre_one" class="text-white text-uppercase">Reconfigure</a></p>
 											</div>
 											</div>
 										<div class="card_list order_hide_title order_summary_title"></div>
@@ -237,7 +237,7 @@
 							</div>
 							<!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
 							<input type="button" name="next" class="next action-button " value="Proceed to Terms and Policies" />
-							<input type="button" name="previous" class="previous action-button-previous d-none" value="Previous" />
+							<input type="button" name="previous" class="previous action-button-previous" id="click_checkout_pre_one" value="Previous" />
 						</fieldset>
 						<fieldset>
 							<div class="form-card">
