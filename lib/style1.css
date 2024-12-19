@@ -497,8 +497,9 @@ span.summary-list-item-label {
     background-color: #1b416f12;
     height: auto;
     border-radius: 5px;
-    padding: 15px 15px 0;
+    padding: 0px 10px 0;
     border: 1px dashed #ddd;
+    line-height: 1;
 }
 .summary-section, .payment-section {
     border-top: 1px solid #ddd;
@@ -754,21 +755,40 @@ input#marketing-consent {
 }
 
  .signature-container {
-      text-align: center;
-      margin-bottom: 20px;
+      text-align: left;
+      margin-bottom: 0px;
+      position: relative;
 /*        font-family: "Dancing Script", cursive; */
  
     }
+    .signature-container .clear {
+        position: absolute;
+        bottom: 10px;
+        right: 40px;
+        color: #1b416f;
+        background-color: transparent;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    /* .signature-container::before {
+        content: "signature pad";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+    .signature-container:active::before, .signature-container:visited::before{
+        display: none;
+    } */
     .input-container {
       text-align: center;
       margin-bottom: 0px;
     }
-     .signature-container canvas {
-      border: 2px solid #ccc;
-      background-color: #fff;
-      cursor: crosshair;
-/*        font-family: "Dancing Script", cursive;*/
-
+    .signature-container canvas {
+        background: linear-gradient(90deg, #e8f5fc 20px, transparent 1%) 50%, linear-gradient(#e8f5fc 20px, transparent 1%) 50%, #1b416f;
+        cursor: crosshair;
+        background-size: 22px 22px;
     }
     .button-group {
       margin-top: 10px;
@@ -784,10 +804,22 @@ input#marketing-consent {
     .clear {
       background-color: #616161;
       color: #fff;
+      padding: 5px 10px;
+      border: 0;
+      font-size: 14px;
     }
     .save {
-      background-color: #1b416f;
+      background-color: #4cb34c;
       color: #fff;
+      padding: 7px 10px;
+      border: 0;
+      font-size: 14px;
+    }
+    .button-group p {
+        font-size: 14px;
+        color: #7d7d7d;
+        text-transform: uppercase;
+        font-weight: 600;
     }
     .input-container h2 {
     font-size: 16px;
@@ -942,5 +974,11 @@ div#policy_contant1, div#policy_contant2 {
     border-radius: 5px;
     position: relative;
     top: -5px;
+    font-size: 12px;
+}
+.sign_box p{
+    text-align: left;
+}
+.sign_box p {
     font-size: 12px;
 }

@@ -338,18 +338,22 @@
 												<div class="input-container">
 													<div class="row">
 														
-														<div class="col-lg-8">
+														<div class="col-lg-6 px-0">
 																<div class="signature-container">
-																<canvas id="signaturePad" width="500" height="150"></canvas>
-																<div class="button-group">
-																	<button class="clear" id="clearButton">Clear</button>
-																	<button class="save" id="saveButton" data-id="1" >Save</button>
-																</div>
+																<canvas id="signaturePad" width="400" height="200"></canvas>
+																<button class="clear" id="clearButton">Clear Pad</button>
+																
 																</div>
 														</div>	
-														<div class="col-lg-4">
+														<div class="col-lg-6 py-3">
 																	<h2>Draw your signature </h2>
-																<input type="text"  name="save_signature" id="signatureInput" placeholder="Enter your name" style="padding: 10px; font-size: 16px; width: 300px;">
+																	<p class="text-left">Move your cursor or finger inside the dotted space</p>
+																<input type="text"  name="save_signature" id="signatureInput" placeholder="Or type your name here" style="padding: 5px; font-size: 14px; width: 300px;">
+																<div class="button-group d-flex justify-content-between align-items-center ">
+																		<p class="mb-0">Signed Documents: 0/2</p>
+																	<button class="save" id="saveButton" data-id="1" >Accept add Sign <i class="fa fa-check" aria-hidden="true"></i>
+																	</button>
+																</div>
 														</div>
 													</div>
 												</div>
