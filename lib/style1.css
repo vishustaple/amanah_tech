@@ -77,8 +77,10 @@ body{
     font-size: 14px;
     width: calc(30% - 18px) !important;
     margin-right: 0px !important;
-    font-family: "lato";
     text-transform: uppercase;
+}
+#orderForm .action-button:hover{
+    background-color: #0056b3 !important;
 }
 
 #orderForm .action-button:hover,
