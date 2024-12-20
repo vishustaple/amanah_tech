@@ -140,7 +140,8 @@ if($_REQUEST["ajax"] == "yes"){
 	$priceData->coupon = $coupon;
 	$priceJSON = $priceData->toJSON();
 	echo $priceJSON;
-} else {
+}
+ else {
 
 	if($_REQUEST["regMethod"]=="login"){
 		header("Location: login.php?forder=".$orderID);
