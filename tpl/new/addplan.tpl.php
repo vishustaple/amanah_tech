@@ -405,8 +405,10 @@
 							<div class="form-card">
 								<div class="login_step">
 									<div class="login-box">
-										<h2>SIGN IN</h2>
-										<p>Don't have an account? <a href="#">Create an account</a></p>
+									<div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+										<h2 class="mb-0">SIGN IN</h2>
+										<p class="mb-0">Don't have an account? <a href="#">Create an account</a></p>
+														</div>
 										<form id="loginForm">
 											<label for="email">Email <span>*</span></label>
 											<input type="email" name="emails" id="emails" placeholder="Enter your email" required>
@@ -422,8 +424,10 @@
 
 									<div class="signup-container">
 										<div class="signup-header">
-											<h2>CREATE YOUR ACCOUNT</h2>
-											<a href="#">Already have an account? Sign In</a>
+										<div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+											<h2 class="mb-0">CREATE YOUR ACCOUNT</h2>
+											<p  class="mb-0">Already have an account?<a href="#"> Sign In</a></p>
+											</div>
 										</div>
 										<form class="signup-form" id="regForm">
 											<div class="form-group">
@@ -737,7 +741,7 @@
 											</div>
 											<div class="form-group checkbox-group">
 												<input type="checkbox" id="marketing-consent">
-												<label for="marketing-consent">Amanah may use my contact data to keep me informed of products, services and offerings</label>
+												<label for="marketing-consent" class="terms-content">Amanah may use my contact data to keep me informed of products, services and offerings</label>
 											</div>
 											<button type="submit" class="signup-button login-button" id="register-button">SIGN UP</button>
 											<span id="regTakenError" class="reg-taken-error disp-none">This email has already been registered in our system.</span>
@@ -746,7 +750,7 @@
 
 											<p class="spinme"></p>
 											<p class="disclaimer">
-												You may unsubscribe from receiving marketing emails by clicking the unsubscribe link in each such email. We promise not to sell, trade or use your email for spam. View our Privacy Policy.
+												You may unsubscribe from receiving marketing emails by clicking the unsubscribe link in each such email. We promise not to sell, trade or use your email for spam. View our <a href="https://www.amanah.com/privacy-policy/" target="_blank">Privacy Policy</a>.
 											</p>
 										</form>
 									</div>
