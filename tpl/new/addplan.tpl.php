@@ -389,7 +389,7 @@
 															<span class="summary-list-item-price format-price order-subtotal-price"></span>
 														</div>
 													</div>
-													<button class="btn-summary" id="checkout_next">PROCEED TO CHECKOUT</button>
+													<button class="btn-summary" id="checkout_next" disabled>PROCEED TO CHECKOUT</button>
 												</div>
 											</div>
 										</div>
@@ -708,7 +708,7 @@
 														<option value="ZW">Zimbabwe</option>
 													</select>
 												</div>
-												<div class="form-group">
+												<div class="form-group regStateClass">
 													<label for="regState">State / Province <span>*</span></label>
 													<select name="regState" id="regState" class="styledDropdown">
 														<option value="">Select a State/Provice</option>
