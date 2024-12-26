@@ -130,7 +130,7 @@ $order = $client->call($_UBER_API_URL,'order.update',array(
 ));
 
 
-if($_REQUEST["ajax"] == "yes"){
+if ($_REQUEST["ajax"] == "yes") {
 	$orderInfo = $client->call($_UBER_API_URL,'order.get',array(
 		'hash' => $orderID,
 		)
@@ -140,13 +140,20 @@ if($_REQUEST["ajax"] == "yes"){
 	$priceData->coupon = $coupon;
 	$priceJSON = $priceData->toJSON();
 	echo $priceJSON;
-}
- else {
+} else {
+	/** Your PHP data */
+	$orderData = ['forder' => $orderID];
 
-	if($_REQUEST["regMethod"]=="login"){
-		header("Location: login.php?forder=".$orderID);
-	} else {
-		header("Location: login.php?reg=1&forder=".$orderID);
-	}
+	/** Set the content type header to application/json */
+	header('Content-Type: application/json');
+
+	/** Send the JSON response */
+	echo json_encode($orderData);
+
+	// if($_REQUEST["regMethod"]=="login"){
+	// 	header("Location: login.php?forder=".$orderID);
+	// } else {
+	// 	header("Location: login.php?reg=1&forder=".$orderID);
+	// }
 }
 flush();

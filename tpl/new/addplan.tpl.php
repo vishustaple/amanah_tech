@@ -410,10 +410,11 @@
 										<p class="mb-0">Don't have an account? <a href="#">Create an account</a></p>
 														</div>
 										<form id="loginForm">
+											<input type="hidden" class="login_forder">
 											<label for="email">Email <span>*</span></label>
-											<input type="email" name="emails" id="emails" placeholder="Enter your email" required>
+											<input type="email" name="email" id="email" placeholder="Enter your email" required>
 											<label for="password">Password <span>*</span></label>
-											<input type="password" name="passwords" id="passwords" placeholder="Enter your password" required>
+											<input type="password" name="password" id="password" placeholder="Enter your password" required>
 											<span id="loginAuthError" class="login-error disp-none">Your email and password was not found.</span>
 											<span id="multiAcctError" class="login-error disp-none">Multiple accounts found, please contact support.</span>
 											<p class="spinme"></p>
@@ -430,6 +431,7 @@
 											</div>
 										</div>
 										<form class="signup-form" id="regForm">
+										<input type="hidden" id="rer_forder">
 											<div class="form-group">
 												<label for="regEmail">Email <span>*</span></label>
 												<input type="email" name="regEmail" id="regEmail" placeholder="Enter your email" required>
