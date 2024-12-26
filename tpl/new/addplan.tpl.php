@@ -415,9 +415,15 @@
 											<input type="email" name="email" id="email" placeholder="Enter your email" required>
 											<label for="password">Password <span>*</span></label>
 											<input type="password" name="password" id="password" placeholder="Enter your password" required>
-											<span id="loginAuthError" class="login-error disp-none">Your email and password was not found.</span>
-											<span id="multiAcctError" class="login-error disp-none">Multiple accounts found, please contact support.</span>
-											<p class="spinme"></p>
+											<div class="form-group">
+												<span id="loginAuthError" class="error-msg login-error disp-none">Your email and password was not found.</span>
+											</div>
+											<div class="form-group">
+												<span id="multiAcctError" class="error-msg login-error disp-none">Multiple accounts found, please contact support.</span>
+											</div>
+											<div class="form-group">
+												<p class="spinme"></p>			
+											</div>
 											<button type="submit" class="login-button" id="login-button">SIGN IN</button>
 										</form>
 										<a href="#" class="forgot-password">Forgot password?</a>
@@ -746,11 +752,19 @@
 												<label for="marketing-consent" class="terms-content">Amanah may use my contact data to keep me informed of products, services and offerings</label>
 											</div>
 											<button type="submit" class="signup-button login-button" id="register-button">SIGN UP</button>
-											<span id="regTakenError" class="reg-taken-error disp-none">This email has already been registered in our system.</span>
-											<span id="regValidError" class="reg-valid-error disp-none">Please enter a valid email and a password at least 6 characters long.</span>
-											<span id="regOtherError" class="reg-valid-error-custom disp-none"></span>
-
-											<p class="spinme"></p>
+											<div class="form-group">
+												<span id="regTakenError" class="error-msg reg-taken-error disp-none">This email has already been registered in our system.</span>
+											</div>
+											<div class="form-group">
+												<span id="regValidError" class="error-msg reg-valid-error disp-none">Please enter a valid email and a password at least 6 characters long.</span>
+											</div>
+											<div class="form-group">
+												<span id="regOtherError" class="error-msg reg-valid-error-custom disp-none"></span>			
+											</div>
+											<div class="form-group">
+												<p class="spinme"></p>
+											</div>
+											
 											<p class="disclaimer">
 												You may unsubscribe from receiving marketing emails by clicking the unsubscribe link in each such email. We promise not to sell, trade or use your email for spam. View our <a href="https://www.amanah.com/privacy-policy/" target="_blank">Privacy Policy</a>.
 											</p>
