@@ -350,7 +350,7 @@
 																	<p class="text-left">Move your cursor or finger inside the dotted space</p>
 																<input type="text"  name="save_signature" id="signatureInput" placeholder="Or type your name here" style="padding: 5px; font-size: 14px; width: 300px;">
 																<div class="button-group d-flex justify-content-between align-items-center ">
-																		<p class="mb-0">Signed Documents: 0/2</p>
+																		<p class="mb-0 pdf_signed_count_two">Signed Documents: 0/2</p>
 																	<button class="save" id="saveButton" data-id="1" >Accept add Sign <i class="fa fa-check" aria-hidden="true"></i>
 																	</button>
 																</div>
