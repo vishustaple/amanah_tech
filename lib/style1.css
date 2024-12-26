@@ -1013,3 +1013,20 @@ button#checkout_next:disabled{
     opacity: 0.5;
     pointer-events: none;
 }
+.error-msg {
+    color: #d04640;
+    font-size: 11px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: #fff;
+    cursor: help;
+    padding-right: 8px;
+    line-height: 1;
+    position: absolute;
+    bottom: 12px;
+    font-weight: 600;
+}
+.form-group{
+    position: relative;
+}
