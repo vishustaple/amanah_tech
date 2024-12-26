@@ -676,15 +676,15 @@ span.summary-list-item-label {
 }
 
 .signup-container button.signup-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #1b416f;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
+    width: 100%;
+    padding: 9px;
+    background-color: #1b416f;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
 }
 .signup-container select {
     margin-bottom: 25px;
