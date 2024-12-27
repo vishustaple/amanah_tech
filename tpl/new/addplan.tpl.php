@@ -437,21 +437,21 @@
 										<form id="forgotpassword">
 											<div class="form-group">
 											 <label for="email">Email <span>*</span></label>
-											 <input type="email" name="email" id="email" placeholder="Enter your email" required>
+											 <input type="email" name="forgot-email" id="forgot-email" placeholder="Enter your email" required>
 											</div>
-											<button type="submit" class="login-button" id="">RESET PASSWORD</button>
-
+											<button type="submit" class="send-forgot-button" id="">RESET PASSWORD</button>
+											<span class="forgot-spinme"></span>
+											<div class="sign-check send-forgot-success send-forgot-result" style="display:none; margin-top: 10px;">
+												Instructions to reset your password have been send to the requested email if it exists in our system.
+											</div>
 											<div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top extra-links">
 												<a href="" class="login-link">Login</a>
-												<a href="">I have a Reset Code</a>
+												<!-- <a href="">I have a Reset Code</a> -->
 											</div>
 										</form>
 									</div>
 									</div>
 									<!-- Forgot password -->
-
-
-
 
 									<div class="signup-container">
 										<div class="signup-header">
@@ -771,11 +771,6 @@
 													<input type="tel" name="regPhone" id="regPhone" placeholder="Enter your phone number" required>
 												</div>
 											</div>
-											<div class="form-group checkbox-group">
-												<input type="checkbox" id="marketing-consent">
-												<label for="marketing-consent" class="terms-content">Amanah may use my contact data to keep me informed of products, services and offerings</label>
-											</div>
-											<button type="submit" class="signup-button login-button" id="register-button">SIGN UP</button>
 											<div class="form-group">
 												<span id="regTakenError" class="error-msg reg-taken-error disp-none">This email has already been registered in our system.</span>
 											</div>
@@ -788,6 +783,12 @@
 											<div class="form-group">
 												<p class="spinme"></p>
 											</div>
+											<div class="form-group checkbox-group">
+												<input type="checkbox" id="marketing-consent">
+												<label for="marketing-consent" class="terms-content">Amanah may use my contact data to keep me informed of products, services and offerings</label>
+											</div>
+											<button type="submit" class="signup-button login-button" id="register-button">SIGN UP</button>
+											
 											
 											<p class="disclaimer">
 												You may unsubscribe from receiving marketing emails by clicking the unsubscribe link in each such email. We promise not to sell, trade or use your email for spam. View our <a href="https://www.amanah.com/privacy-policy/" target="_blank">Privacy Policy</a>.

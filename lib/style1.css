@@ -590,6 +590,18 @@ span.summary-list-item-label {
     font-weight: bold;
     cursor: pointer;
 }
+
+.forgot-sec .send-forgot-button{
+    width: 100%;
+    padding: 10px;
+    background-color: #1b416f;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
 .login-box label span {
     color: red;
 }
