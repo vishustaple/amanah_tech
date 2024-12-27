@@ -509,14 +509,14 @@ span.summary-list-item-label {
 }
 /*Login_step:*/
 
-.login-box {
+.login-box, .forgot-sec {
     width: 500px;
     padding: 20px;
     background-color: #ffffff;
     text-align: left;
     margin: 0 auto;
 }
-.login_step label {
+.login_step label, .forgot-sec  label {
     color: #858585 !important;
 }
 
@@ -561,11 +561,65 @@ span.summary-list-item-label {
     color: #333;
     font-weight: 700;
 }
-
+.forgot-sec h2 {
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.forgot-sec label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.forgot-sec input {
+    background: #f9f9f9 !important;
+    color: #888 !important;
+    border: 1px solid #ececec !important;
+    outline: none;
+    height: 32px;
+}
+.forgot-sec .login-button{
+    width: 100%;
+    padding: 10px;
+    background-color: #1b416f;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
 .login-box label span {
     color: red;
 }
+.forgot-header {
+    background-color: #183b65;
+    padding: 40px 20px !important;
+}
+.forgot-header h2{
+    color: #fff;
+}
+.forgot-sec{
+    display: none;
+}
+.forgot-sec.active{
+    display: block;
+}
 
+.forgot-sec {
+    box-shadow: 0px 0px 4px 2px #eee;
+    padding: 0;
+}
+#forgotpassword{
+    padding: 20px;
+}
+.extra-links a {
+    color: #005f99;
+    text-decoration: none !important;
+    font-size: 14px;
+    margin-top: 5px;
+}
 .login-box input {
     width: 100%;
     padding: 10px;

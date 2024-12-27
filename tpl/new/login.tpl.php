@@ -240,7 +240,6 @@
 		</header>
 
 		<div class="maincontent">
-
 			<div class="login-register-form">
 				<div class="pages">
                     <?php if(!isset($_REQUEST['reg']))
@@ -273,6 +272,7 @@
 								<p class="spinme"></p>
 							</form>
 
+							
 							<div class="lightbox disp-none" id="mylightbox">
 								<div class="lightbox-title">
 									<h2>Reset Password</h2>
