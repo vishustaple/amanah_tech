@@ -411,10 +411,20 @@
 														</div>
 										<form id="loginForm">
 											<input type="hidden" class="login_forder">
-											<label for="email">Email <span>*</span></label>
-											<input type="email" name="email" id="email" placeholder="Enter your email" required>
-											<label for="password">Password <span>*</span></label>
-											<input type="password" name="password" id="password" placeholder="Enter your password" required>
+											<div class="form-group">
+												<label for="email">Email <span>*</span></label>
+												<input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
+												<div class="invalid-feedback">
+													Please provide a valid email address.
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="password">Password <span>*</span></label>
+												<input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+												<div class="invalid-feedback">
+													Please provide a Password.
+												</div>
+											</div>
 											<div class="form-group">
 												<span id="loginAuthError" class="error-msg login-error disp-none">Your email and password was not found.</span>
 											</div>
@@ -430,14 +440,17 @@
 									</div>
 
 									<!-- Forgot password -->
-									 <div class="forgot-sec">
+									<div class="forgot-sec">
 									<div class="d-flex justify-content-between align-items-center mb-3  border-bottom forgot-header">
 										<h2 class="mb-0">Retrieve Your Password</h2>
 														</div>
 										<form id="forgotpassword">
 											<div class="form-group">
-											 <label for="email">Email <span>*</span></label>
-											 <input type="email" name="forgot-email" id="forgot-email" placeholder="Enter your email" required>
+												<label for="email">Email <span>*</span></label>
+												<input type="email" name="forgot-email" class="form-control" id="forgot-email" placeholder="Enter your email" required>
+												<div class="invalid-feedback">
+													Please provide a valid email address.
+												</div>
 											</div>
 											<button type="submit" class="send-forgot-button" id="">RESET PASSWORD</button>
 											<span class="forgot-spinme"></span>
@@ -460,30 +473,45 @@
 											<p  class="mb-0">Already have an account?<a href="#"> Sign In</a></p>
 											</div>
 										</div>
-										<form class="signup-form" id="regForm">
+										<form class="signup-form" id="regForm" novalidate>
 										<input type="hidden" id="rer_forder">
 											<div class="form-group">
 												<label for="regEmail">Email <span>*</span></label>
-												<input type="email" name="regEmail" id="regEmail" placeholder="Enter your email" required>
+												<input type="email" name="regEmail" id="regEmail" class="form-control" placeholder="Enter your email" required>
+												<div class="invalid-feedback">
+													Please provide a valid email address.
+												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group">
 													<label for="regFirst">First Name <span>*</span></label>
-													<input type="text" name="regFirst" id="regFirst" placeholder="Enter your first name" required>
+													<input type="text" name="regFirst" id="regFirst" class="form-control" placeholder="Enter your first name" required>
+													<div class="invalid-feedback">
+														First name is required.
+													</div>
 												</div>
 												<div class="form-group">
 													<label for="regLast">Last Name <span>*</span></label>
-													<input type="text" name="regLast" id="regLast" placeholder="Enter your last name" required>
+													<input type="text" name="regLast" id="regLast" class="form-control" placeholder="Enter your last name" required>
+													<div class="invalid-feedback">
+														Last name is required.
+													</div>
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group">
 													<label for="regPassword">Password <span>*</span></label>
-													<input type="password" name="regPassword" id="regPassword" placeholder="Enter your password" required>
+													<input type="password" name="regPassword" id="regPassword" class="form-control" placeholder="Enter your password" required>
+													<div class="invalid-feedback">
+														Password is required.
+													</div>
 												</div>
 												<div class="form-group">
 													<label for="regPasswordCnf">Retype Password <span>*</span></label>
-													<input type="password" name="regPasswordCnf" id="regPasswordCnf" placeholder="Retype your password" required>
+													<input type="password" name="regPasswordCnf" id="regPasswordCnf" class="form-control" placeholder="Retype your password" required>
+													<div class="invalid-feedback">
+														Please retype your password.
+													</div>
 												</div>
 											</div>
 											<div class="form-row">
@@ -495,7 +523,7 @@
 														<option value="canada">Canada</option>
 														<option value="uk">United Kingdom</option>
 													</select> -->
-													<select class="country-select tax-form-data" name="regCountry" id="regCountry" required>
+													<select class="country-select tax-form-data form-control" name="regCountry" id="regCountry" required>
 														<option value="" disabled="" selected="selected">Select a Country</option>
 														<option value="CA">Canada</option>
 														<option value="US">United States</option>
@@ -743,32 +771,50 @@
 														<option value="ZM">Zambia</option>
 														<option value="ZW">Zimbabwe</option>
 													</select>
+													<div class="invalid-feedback">
+														Please select a country.
+													</div>
 												</div>
 												<div class="form-group regStateClass">
 													<label for="regState">State / Province <span>*</span></label>
-													<select name="regState" id="regState" class="styledDropdown">
+													<select name="regState" id="regState" class="styledDropdown form-control">
 														<option value="">Select a State/Provice</option>
 													</select>
+													<div class="invalid-feedback">
+														Please select a State.
+													</div>
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group">
 													<label for="regCity">City <span>*</span></label>
-													<input type="text" name="regCity" id="regCity"  placeholder="Enter your city" required>
+													<input type="text" name="regCity" id="regCity" class="form-control" placeholder="Enter your city" required>
+													<div class="invalid-feedback">
+														City is required.
+													</div>
 												</div>
 												<div class="form-group">
 													<label for="regZip">ZIP / Postal <span>*</span></label>
-													<input type="text" name="regZip" id="regZip" placeholder="Enter your ZIP or postal code" required>
+													<input type="text" name="regZip" id="regZip" class="form-control" placeholder="Enter your ZIP or postal code" required>
+													<div class="invalid-feedback">
+														Postal Code is required.
+													</div>
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-group">
 													<label for="regAddress">Address <span>*</span></label>
-													<input type="text" name="regAddress" id="regAddress" placeholder="Enter your address" required>
+													<input type="text" name="regAddress" id="regAddress" class="form-control" placeholder="Enter your address" required>
+													<div class="invalid-feedback">
+														Address is required.
+													</div>
 												</div>
 												<div class="form-group">
 													<label for="regPhone">Phone <span>*</span></label>
-													<input type="tel" name="regPhone" id="regPhone" placeholder="Enter your phone number" required>
+													<input type="tel" name="regPhone" id="regPhone" class="form-control" placeholder="Enter your phone number" required>
+													<div class="invalid-feedback">
+														Phone number is required.
+													</div>
 												</div>
 											</div>
 											<div class="form-group">
@@ -801,7 +847,7 @@
 							<input type="button" name="previous" class="previous action-button-previous  d-none" value="Previous" />
 						</fieldset>
 
-						<fieldset class="d-none">
+						<fieldset class="">
 						   <div class="form-card">
 							<div class="checkout-form">
 							<div class="form-inner-container">
