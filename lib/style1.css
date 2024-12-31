@@ -1048,7 +1048,7 @@ div#policy_contant1, div#policy_contant2 {
 }
 }
 
-#click_checkout_next {
+#click_checkout_next, #go_to_checkout {
     display: none;
 }
 
@@ -1095,4 +1095,38 @@ button#checkout_next:disabled{
 }
 .form-group{
     position: relative;
+}
+
+.checkout-form .form-group label {
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+}
+.checkout-form .form-group input, .checkout-form .form-group select{
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    padding: 5px;
+
+}
+.checkout-form .form-group{
+    margin-bottom: 10px;
+}
+.checkout-form {
+    max-width: 600px;
+}
+.checkout-submit button{
+
+    background: #1b416f;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    width: calc(30% - 18px) !important;
+    margin-right: 0px !important;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    margin-bottom: 10px;
 }
