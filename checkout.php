@@ -11,8 +11,8 @@ $client = new uber_api_client($_API_USER,$_API_PASS);
 setlocale(LC_MONETARY, 'en_US');
 
 //Start the template engine
-$tpl = new Savant3();
-$tpl->session=$_SESSION;
+// $tpl = new Savant3();
+// $tpl->session=$_SESSION;
 $coupon = null;
 
 if($_POST["s"]=="")
@@ -49,48 +49,94 @@ if($_POST["s"]=="")
 
 	$priceData = new PriceData($pack,$order,$coupon);
 	$priceJSON = $priceData->toJSON();
-	$tpl->priceJSON=$priceJSON;
-	$tpl->forder=$_REQUEST["forder"];
-	$tpl->title = $pack["title"];
-	//$tpl->period = $pack["period"];
-        $tpl->period = $order["info"]["pack1"]["period"];
-	$tpl->quantity = $order["info"]["pack1"]["quantity"];
-	$tpl->packPrice = $priceData->packRec;
-	$tpl->packTotal = $priceData->packRec * $order["info"]["pack1"]["quantity"];
-	$tpl->packSetup = $priceData->packSetup;
-	$tpl->totalSetup = floatval($priceData->packSetup) * intval($order["info"]["pack1"]["quantity"]);
-	$tpl->subTotal = $priceData->subTotal;
 
-	//Load client data if it exists
-	$tpl->fname=$clientData["first"];
-	$tpl->lname=$clientData["last"];
-	$tpl->email=$clientData["email"];
-	$tpl->phone=$clientData["phone"];
-	$tpl->address=$clientData["address"];
-	$tpl->city=$clientData["city"];
-	$tpl->state=$clientData["state"];
-	$tpl->postal=$clientData["zip"];
-	$tpl->country=$clientData["country"];
-	$tpl->company=$clientData["company"];
+	// Prepare the data structure for the JSON response
+	$response = array();
 
-	$tpl->_TAX_RATE = $_TAX_RATE;
+	// Set price-related details
+	$response['title'] = $pack["title"];
+	$response['forder'] = $_REQUEST["forder"];
+	$response['subTotal'] = $priceData->subTotal;
+	$response['packPrice'] = $priceData->packRec;
+	$response['priceJSON'] = $priceData->toJSON();
+	$response['packSetup'] = $priceData->packSetup;
+	$response['period'] = $order["info"]["pack1"]["period"];
+	$response['quantity'] = $order["info"]["pack1"]["quantity"];
+	$response['packTotal'] = $priceData->packRec * $order["info"]["pack1"]["quantity"];
+	$response['totalSetup'] = floatval($priceData->packSetup) * intval($order["info"]["pack1"]["quantity"]);
 
-	//Always display the actual total, display errors are better than billing errors. 
-	$tpl->total = $order["total"]; 
+	// Load client data if it exists
+	$response['city'] = $clientData["city"];
+	$response['postal'] = $clientData["zip"];
+	$response['lname'] = $clientData["last"];
+	$response['email'] = $clientData["email"];
+	$response['phone'] = $clientData["phone"];
+	$response['state'] = $clientData["state"];
+	$response['fname'] = $clientData["first"];
+	$response['address'] = $clientData["address"];
+	$response['country'] = $clientData["country"];
+	$response['company'] = $clientData["company"];
 
-	$tpl->email = $clientData["email"];
+	// Add tax rate and total
+	$response['_TAX_RATE'] = $_TAX_RATE;
+	$response['total'] = $order["total"];
 
-
-	$tpl->details = array();
-	foreach($order["info"]["pack1"]["options"] as $groupId=>$optId){
-		$tpl->details[$groupId] = array(
-			"price"=>$priceData->upgrades[$optId]->price,
-			"setup"=>$priceData->upgrades[$optId]->setup,
-			"title"=>$pack["upgrades"][$groupId]["options"][$optId]["spo_description"],
+	// Populate the details for each upgrade option
+	$response['details'] = [];
+	foreach ($order["info"]["pack1"]["options"] as $groupId => $optId) {
+		$response['details'][$groupId] = array(
+			'price' => $priceData->upgrades[$optId]->price,
+			'setup' => $priceData->upgrades[$optId]->setup,
+			'title' => $pack["upgrades"][$groupId]["options"][$optId]["spo_description"]
 		);
 	}
 
-	$tpl->display('tpl/' . $_TEMPLATE . '/checkout.tpl.php');
+	// Encode the response array to JSON and send it as a response
+	header('Content-Type: application/json');
+	echo json_encode($response, JSON_PRETTY_PRINT);
+
+	// $tpl->priceJSON=$priceJSON;
+	// $tpl->forder=$_REQUEST["forder"];
+	// $tpl->title = $pack["title"];
+	// //$tpl->period = $pack["period"];
+    //     $tpl->period = $order["info"]["pack1"]["period"];
+	// $tpl->quantity = $order["info"]["pack1"]["quantity"];
+	// $tpl->packPrice = $priceData->packRec;
+	// $tpl->packTotal = $priceData->packRec * $order["info"]["pack1"]["quantity"];
+	// $tpl->packSetup = $priceData->packSetup;
+	// $tpl->totalSetup = floatval($priceData->packSetup) * intval($order["info"]["pack1"]["quantity"]);
+	// $tpl->subTotal = $priceData->subTotal;
+
+	// //Load client data if it exists
+	// $tpl->fname=$clientData["first"];
+	// $tpl->lname=$clientData["last"];
+	// $tpl->email=$clientData["email"];
+	// $tpl->phone=$clientData["phone"];
+	// $tpl->address=$clientData["address"];
+	// $tpl->city=$clientData["city"];
+	// $tpl->state=$clientData["state"];
+	// $tpl->postal=$clientData["zip"];
+	// $tpl->country=$clientData["country"];
+	// $tpl->company=$clientData["company"];
+
+	// $tpl->_TAX_RATE = $_TAX_RATE;
+
+	// //Always display the actual total, display errors are better than billing errors. 
+	// $tpl->total = $order["total"]; 
+
+	// $tpl->email = $clientData["email"];
+
+
+	// $tpl->details = array();
+	// foreach($order["info"]["pack1"]["options"] as $groupId=>$optId){
+	// 	$tpl->details[$groupId] = array(
+	// 		"price"=>$priceData->upgrades[$optId]->price,
+	// 		"setup"=>$priceData->upgrades[$optId]->setup,
+	// 		"title"=>$pack["upgrades"][$groupId]["options"][$optId]["spo_description"],
+	// 	);
+	// }
+
+	// $tpl->display('tpl/' . $_TEMPLATE . '/checkout.tpl.php');
 }
 else{
 	//Make sure the user is authed
