@@ -180,7 +180,7 @@ body{
 
 #progressbar #checkout_sec:before {
     font-family: FontAwesome;
-    content: "\f030"
+    content: "\f00c"
 }
 
 #progressbar #complete_sec:before {
@@ -677,9 +677,13 @@ span.summary-list-item-label {
     border: 1px solid #ececec !important;
     outline: none;
     height: 32px;
+    margin-bottom: 0 !important; 
 }
-/*Signup*/
 
+/*Signup*/
+.signup-container .form-group {
+    margin-bottom: 15px;
+}
 .signup-container {
   width: 600px;
   margin: 20px auto;
@@ -1093,6 +1097,7 @@ button#checkout_next:disabled{
     bottom: 12px;
     font-weight: 600;
 }
+
 .form-group{
     position: relative;
 }
@@ -1101,20 +1106,25 @@ button#checkout_next:disabled{
     display: inline-block;
     width: 100%;
     font-size: 14px;
+    color: #858585;
+    font-weight: 600;
 }
 .checkout-form .form-group input, .checkout-form .form-group select{
     width: 100%;
     font-size: 14px;
     border: 1px solid #ddd;
-    padding: 5px;
+    padding: 5px !important;
+    margin-bottom: 0px !important;
+    background-color: #ECEFF1 !important;
 
 }
 .checkout-form .form-group{
     margin-bottom: 10px;
 }
-.checkout-form {
+/* .checkout-form {
     max-width: 600px;
-}
+    margin: 0 auto !important;
+} */
 .checkout-submit button{
 
     background: #1b416f;
@@ -1127,6 +1137,14 @@ button#checkout_next:disabled{
     width: calc(30% - 18px) !important;
     margin-right: 0px !important;
     text-transform: uppercase;
-    padding: 5px 18px;
-    margin-bottom: 10px;
+    padding: 10px 18px;
+    margin: 15px 0; 
+}
+.checkout-form h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
