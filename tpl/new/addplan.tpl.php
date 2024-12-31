@@ -411,7 +411,7 @@
 											<h2 class="mb-0">SIGN IN</h2>
 											<p class="mb-0">Don't have an account? <a href="#" class="create-account">Create an account</a></p>
 										</div>
-										<div id="loginf">
+										<form id="loginform" novalidate>
 											<input type="hidden" class="login_forder">
 											<div class="form-group">
 												<label for="email">Email <span>*</span></label>
@@ -437,16 +437,16 @@
 												<p class="spinme"></p>			
 											</div>
 											<button class="login-button" id="login-button">SIGN IN</button>
-										</div>
+										</form>
 										<a href="#" class="forgot-password">Forgot password?</a>
 									</div>
 
 									<!-- Forgot password -->
 									<div class="forgot-sec">
-									<div class="d-flex justify-content-between align-items-center mb-3  border-bottom forgot-header">
-										<h2 class="mb-0">Retrieve Your Password</h2>
-														</div>
-										<form id="">
+										<div class="d-flex justify-content-between align-items-center mb-3  border-bottom forgot-header">
+											<h2 class="mb-0">Retrieve Your Password</h2>
+										</div>
+										<form id="forgotpassword" novalidate>
 											<div class="form-group">
 												<label for="email">Email <span>*</span></label>
 												<input type="email" name="forgot-email" class="form-control" id="forgot-email" placeholder="Enter your email" required>
@@ -454,7 +454,7 @@
 													Please provide a valid email address.
 												</div>
 											</div>
-											<button class="send-forgot-button" id="forgotpassword">RESET PASSWORD</button>
+											<button class="send-forgot-button" id="">RESET PASSWORD</button>
 											<span class="forgot-spinme"></span>
 											<div class="sign-check send-forgot-success send-forgot-result" style="display:none; margin-top: 10px;">
 												Instructions to reset your password have been send to the requested email if it exists in our system.
@@ -476,7 +476,7 @@
 											</div>
 										</div>
 										<form class="signup-form" id="regForm" novalidate>
-										<input type="hidden" id="rer_forder">
+											<input type="hidden" id="rer_forder">
 											<div class="form-group">
 												<label for="regEmail">Email <span>*</span></label>
 												<input type="email" name="regEmail" id="regEmail" class="form-control" placeholder="Enter your email" required>
@@ -519,12 +519,6 @@
 											<div class="form-row">
 												<div class="form-group">
 													<label for="regCountry">Country <span>*</span></label>
-													<!-- <select id="country" required>
-														<option value="" disabled selected>Choose country</option>
-														<option value="usa">United States</option>
-														<option value="canada">Canada</option>
-														<option value="uk">United Kingdom</option>
-													</select> -->
 													<select class="country-select tax-form-data form-control" name="regCountry" id="regCountry" required>
 														<option value="" disabled="" selected="selected">Select a Country</option>
 														<option value="CA">Canada</option>
@@ -842,9 +836,8 @@
 										</form>
 									</div>
 								</div>
-							<!-- </div> -->
-							<input type="button" name="next" class="next action-button" value="Next" />
-							<input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+							<input type="button" name="next" class="next action-button" id="go_to_checkout" value="Next" />
+							<!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
 						</fieldset>
 
 						<fieldset>

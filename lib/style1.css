@@ -1048,7 +1048,7 @@ div#policy_contant1, div#policy_contant2 {
 }
 }
 
-#click_checkout_next {
+#click_checkout_next, #go_to_checkout {
     display: none;
 }
 
