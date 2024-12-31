@@ -1189,10 +1189,10 @@
 															<div class="form-group">
 																<span>
 																	<label>State/Province</label>
-																	<input type="text" class="disp-inline"
-																		placeholder="State" name="state" id="chstate">
-																	<select name="statedropdown" id="statedropdown"
-																		class="styledDropdown disp-none tax-form-data">
+																	<!-- <input type="text" class="disp-inline"
+																		placeholder="State" name="state" id="statedropdown"> -->
+																	<select name="statedropdown" id="chstate" 
+																		class="styledDropdown  tax-form-data">
 																		<option value="">Select a State/Provice</option>
 																		<option style="font-weight:bold;" value=""
 																			disabled="">---------- Canada ----------

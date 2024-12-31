@@ -273,21 +273,45 @@ else{
 			'hash' => $orderID,
 		)); 
 		
-		//If payment if via PayPal, get some info to display to the user
-		$tpl->total=$getOrder["total"];
-		if($getOrder["info"]["payment_type"] == 'paypal')
-		{
-			$delStart=strpos($submit,'<p>');
-			$delEnd=strpos($submit,'<input type="submit"');
+		// Initialize response array
+		$response = array();
 
-			$tpl->button=substr($submit,0,$delStart) . substr($submit,$delEnd);
+		// Set the total
+		$response['total'] = $getOrder['total'];
 
-			//Replace the return addresses from the default. 
-			$tpl->paypal=true;
+		// If payment is via PayPal, get some info to display to the user
+		if ($getOrder['info']['payment_type'] == 'paypal') {
+			$delStart = strpos($submit, '<p>');
+			$delEnd = strpos($submit, '<input type="submit"');
+			
+			// Prepare the button content
+			$response['button'] = substr($submit, 0, $delStart) . substr($submit, $delEnd);
+
+			// Set PayPal info
+			$response['paypal'] = true;
 		}
-		$tpl->orderID=$getOrder["order_id"];
-		$tpl->email=$getOrder["info"]["email"];
-		$tpl->display('tpl/' . $_TEMPLATE . '/submit.tpl.php');
+
+		// Set the order ID and email
+		$response['orderID'] = $getOrder['order_id'];
+		$response['email'] = $getOrder['info']['email'];
+
+		// Convert the response array into a JSON object and output it
+		echo json_encode($response);
+		// //If payment if via PayPal, get some info to display to the user
+		// $tpl->total=$getOrder["total"];
+		// if($getOrder["info"]["payment_type"] == 'paypal')
+		// {
+		// 	$delStart=strpos($submit,'<p>');
+		// 	$delEnd=strpos($submit,'<input type="submit"');
+
+		// 	$tpl->button=substr($submit,0,$delStart) . substr($submit,$delEnd);
+
+		// 	//Replace the return addresses from the default. 
+		// 	$tpl->paypal=true;
+		// }
+		// $tpl->orderID=$getOrder["order_id"];
+		// $tpl->email=$getOrder["info"]["email"];
+		// $tpl->display('tpl/' . $_TEMPLATE . '/submit.tpl.php');
 	}
 }
 
