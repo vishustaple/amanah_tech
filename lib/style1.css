@@ -1052,7 +1052,7 @@ div#policy_contant1, div#policy_contant2 {
 }
 }
 
-#click_checkout_next, #go_to_checkout {
+#click_checkout_next, #go_to_checkout, #go_to_final_submit{
     display: none;
 }
 

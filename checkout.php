@@ -174,15 +174,15 @@ else{
 
 	if($_POST["pm"] == "cc"){
 		//Enter the credit card information in the system
-		$name=explode(' ',$_POST["ccName"]);
-		$fname=$name[0];
-		$lname=$name[sizeof($name)-1];
+		// $name=explode(' ',$_POST["ccName"]);
+		// $fname=$name[0];
+		// $lname=$name[sizeof($name)-1];
 		$newCC = $client->call($_UBER_API_URL,'client.cc_add',array(
 			'cc_num' => $_POST["ccNum"], 
 			'cc_expire' => ($_POST["ccm"] . $_POST["ccy"]), 
 			'cc_cvv2' => $_POST["cccvv2"], 
-			'fname' => $fname,
-			'lname' => $lname,
+			'fname' => $_POST["fname"],
+			'lname' => $_POST["lname"],
 			'company' => $_POST["company"],
 			'address' => $_POST["address"] . " " . $_POST["address2"],
 			'city' => $_POST["city"],

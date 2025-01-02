@@ -1663,7 +1663,15 @@
 									</div>
 								</div>
 							</div>
-					</div>
+						<!-- </div> -->
+						<input type="button" name="next" class="next action-button" id="go_to_final_submit" value="Next" />
+						<!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+					</fieldset>
+					<fieldset>
+						<div class="maincontent">
+							<div id="final_order_submition"></div>
+						</div>
+						
 					</fieldset>
 				</div>
 			</div>
