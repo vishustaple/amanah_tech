@@ -1566,7 +1566,7 @@
 															<div class="form-group">
 																<span>
 																	<label class="paylabel">&nbsp;</label>
-																	<span class="payswitchbox">
+																	<span class="d-flex gap-3 align-items-center payswitchbox">
 																		<i class="fa fa-credit-card-alt fa-3x payswitch pay-icon pay-icon-selected"
 																			id="cclink" aria-hidden="true"></i>
 																		<img class="payswitch pay-icon paypal-image"
