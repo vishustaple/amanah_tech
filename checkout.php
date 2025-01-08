@@ -171,13 +171,16 @@ else{
 		'phone' => $_POST["phone"],
 		'email' => $_POST["email"],
 	)); 
+	$response = array();
 
 	if($_POST["pm"] == "cc"){
 		//Enter the credit card information in the system
 		// $name=explode(' ',$_POST["ccName"]);
 		// $fname=$name[0];
+	
 		// $lname=$name[sizeof($name)-1];
 		$newCC = $client->call($_UBER_API_URL,'client.cc_add',array(
+			'client_id' => $order["client_id"], 
 			'cc_num' => $_POST["ccNum"], 
 			'cc_expire' => ($_POST["ccm"] . $_POST["ccy"]), 
 			'cc_cvv2' => $_POST["cccvv2"], 
@@ -192,6 +195,8 @@ else{
 			'phone' => $_POST["phone"],
 			'email' => $_POST["email"],
 		)); 
+
+
 		if(isset($_REQUEST['forder']))
 		{
 			//Assign the stored CC id to the order
@@ -203,7 +208,6 @@ else{
 					'payment_type' => 'charge_prior_auth'
 				),
 			));
-			
 		}
 	}
 	if($_POST["pm"]=="storedCC"){
@@ -274,8 +278,7 @@ else{
 		)); 
 		
 		// Initialize response array
-		$response = array();
-
+	
 		// Set the total
 		$response['total'] = $getOrder['total'];
 

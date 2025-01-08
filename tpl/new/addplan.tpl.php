@@ -211,6 +211,7 @@
 											</div>
 										</div>
 										<div class="card_list order_hide_title order_summary_title"></div>
+										<div class="card_list order_summary_data"></div>
 									</div>
 									<div class="col-lg-3">
 										<div class="side_panel">
