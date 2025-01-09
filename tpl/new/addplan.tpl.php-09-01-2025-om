@@ -71,9 +71,7 @@
 												<h5 class="card_title">Hardware Configuration</h5>
 												<?php $firstName = 'first_prd_name';
 												$firstPrice = 'first_prd_price';
-												
 												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo) {
-													
 													// echo"<pre>";print_r($groupInfo); ?>
 													<div class="items_list">
 														<div class="items_name">
@@ -86,11 +84,7 @@
 																id="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>"
 																value="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>" />
 															<h5 class="items_config_title set_prd_name <?= $firstName ?>">
-															<?php 
-																if ($groupInfo["pu_name"] != 'CPU') {
-																	echo $groupInfo["options"][array_key_first($groupInfo["options"])]['pog_name'];
-																}
-																?>
+																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['pog_name'] ?>
 																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
 															</h5>
 															<h5 class="items_config_title price_data set_price_html <?= $firstPrice ?>"
@@ -104,9 +98,8 @@
 																<?php $firstName = $firstPrice = '';
 																$spogId = -1; ?>
 																<?php $isFirstLoop = true; ?>
-																<?php $isFirstItem = true; ?>
 																<?php foreach ($groupInfo["options"] as $optionID => $optionInfo) { ?>
-																	<li class="get_hard <?php if ($isFirstItem): ?>selected<?php $isFirstItem = false; ?><?php endif; ?>"
+																	<li class="get_hard"
 																		data-class_id="<?= array_key_first($groupInfo["options"]) ?>"
 																		data-name="pu<?= $optionInfo["pu_id"] ?>"
 																		data-id="<?= $optionInfo["po_id"] ?>"
