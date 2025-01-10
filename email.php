@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php'; // If using Composer, include the Composer autoload file
 // Or manually include the PHPMailer files:
-function sendEmailTesting($attachments, $emails) {
+function sendEmailTesting($attachments, $emails,$userName) {
     $mail = new PHPMailer(true);
     try {
         // Server settings
@@ -30,9 +30,12 @@ function sendEmailTesting($attachments, $emails) {
         }
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'term-and policy Aamanah Orders';
-        $mail->Body    = 'This is the <b>HTML</b> Term sheets <b> for some product !</b>';
-        $mail->AltBody = 'This is the plain text version of the email content';
+        $mail->Subject = 'Order Term & Condition Information from Amanah';
+        $mail->Body    = '<strong>Thank you for your order!</strong><br />
+        <p>Please find the signed copy of the Service Level Agreement attached.</p> <br /> <p>If you have any questions, 
+        feel free to contact us at billing@amanah.com.</p><br />
+        <p>Best regards,</p><br /><p>Team Amanah</p>';
+       
 
         // Send the email
         $mail->send();

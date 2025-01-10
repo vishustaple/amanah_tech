@@ -304,7 +304,8 @@ else{
 		$response['email'] = $getOrder['info']['email'];
 		// email send Users
 		$emailArray=array($getOrder['info']['email']);
-		$emailStaus = sendEmailTesting($_POST['term_policy'],$emailArray);
+		$userFullName = $_POST["fname"].' '.$_POST["lname"];
+		$emailStaus = sendEmailTesting($_POST['term_policy'],$emailArray,$userFullName);
 		$response['email_send'] = $emailStaus;
 		// Convert the response array into a JSON object and output it
 		echo json_encode($response);
