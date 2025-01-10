@@ -5,6 +5,7 @@ require_once(dirname(__FILE__) .'/core/config.php');
 require_once(dirname(__FILE__) .'/core/functions.php');
 require_once(dirname(__FILE__) .'/core/classes.php');
 require_once(dirname(__FILE__) .'/core/Savant3.php');
+require_once(dirname(__FILE__) .'/email.php');
 
 $client = new uber_api_client($_API_USER,$_API_PASS);
 
@@ -17,6 +18,8 @@ $coupon = null;
 
 if($_POST["s"]=="")
 {
+	
+	
 	$orderID=$_GET["forder"];
 	$order = $client->call($_UBER_API_URL,'order.get',array(
 		'hash' => $orderID,
@@ -93,6 +96,8 @@ if($_POST["s"]=="")
 
 	// Encode the response array to JSON and send it as a response
 	header('Content-Type: application/json');
+
+	
 	echo json_encode($response, JSON_PRETTY_PRINT);
 
 	// $tpl->priceJSON=$priceJSON;
@@ -139,6 +144,7 @@ if($_POST["s"]=="")
 	// $tpl->display('tpl/' . $_TEMPLATE . '/checkout.tpl.php');
 }
 else{
+	
 	//Make sure the user is authed
 	$orderID=$_REQUEST["forder"];
 	$order = $client->call($_UBER_API_URL,'order.get',array(
@@ -177,7 +183,6 @@ else{
 		//Enter the credit card information in the system
 		// $name=explode(' ',$_POST["ccName"]);
 		// $fname=$name[0];
-	
 		// $lname=$name[sizeof($name)-1];
 		$newCC = $client->call($_UBER_API_URL,'client.cc_add',array(
 			'client_id' => $order["client_id"], 
@@ -297,9 +302,14 @@ else{
 		// Set the order ID and email
 		$response['orderID'] = $getOrder['order_id'];
 		$response['email'] = $getOrder['info']['email'];
-
+		// email send Users
+		$emailArray=array($getOrder['info']['email']);
+		$userFullName = $_POST["fname"].' '.$_POST["lname"];
+		$emailStaus = sendEmailTesting($_POST['term_policy'],$emailArray,$userFullName);
+		$response['email_send'] = $emailStaus;
 		// Convert the response array into a JSON object and output it
 		echo json_encode($response);
+	
 		// //If payment if via PayPal, get some info to display to the user
 		// $tpl->total=$getOrder["total"];
 		// if($getOrder["info"]["payment_type"] == 'paypal')

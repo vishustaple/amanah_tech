@@ -1,7 +1,6 @@
 <?php
 if (isset($_FILES['pdf'])) {
     $pdf = $_FILES['pdf'];
-    
     // Define the target directory and file name
     $targetDir = "uploads/";  // Change this to your desired directory
     $targetFile = $targetDir . time() . basename($pdf['name']);  // Use the original filename
@@ -10,7 +9,7 @@ if (isset($_FILES['pdf'])) {
     if ($pdf['type'] == 'application/pdf') {
         // Move the uploaded file to the target directory
         if (move_uploaded_file($pdf['tmp_name'], $targetFile)) {
-            echo json_encode(['success' => true, 'message' => 'PDF saved successfully!']);
+            echo json_encode(['success' => true, 'message' => 'PDF saved successfully!','filePaths' => $targetFile]);
         } else {
             echo json_encode(['success' => false, 'message' => 'Failed to save PDF on the server.']);
         }
@@ -20,4 +19,4 @@ if (isset($_FILES['pdf'])) {
 } else {
     echo json_encode(['success' => false, 'message' => 'No file uploaded.']);
 }
-?>
+?> 

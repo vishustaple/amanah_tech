@@ -86,12 +86,12 @@
 																id="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>"
 																value="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>" />
 															<h5 class="items_config_title set_prd_name <?= $firstName ?>">
-															<?php 
+															<!-- < ?php 
 																if ($groupInfo["pu_name"] != 'CPU') {
 																	echo $groupInfo["options"][array_key_first($groupInfo["options"])]['pog_name'];
 																}
-																?>
-																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
+																?> -->
+																<?= preg_replace("/[\/\(\)]/", "", $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description']) ?>
 															</h5>
 															<h5 class="items_config_title price_data set_price_html <?= $firstPrice ?>"
 																data-optId="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>">
@@ -113,10 +113,10 @@
 																		data-value="<?= $optionInfo["po_id"] ?>">
 																		<div class="items_config">
 																			<h5 class="items_config_title get_prd_name">
-																				<?php if ($optionInfo["pog_id"] != 0) { ?>
-																					<?= $optionInfo["pog_name"] ?>
-																				<?php } ?>
-																				<?= $optionInfo['po_description'] ?>
+																				<!-- < ?php if ($optionInfo["pog_id"] != 0) { ?>
+																					< ?= $optionInfo["pog_name"] ?>
+																				< ?php } ?> -->
+																				<?= preg_replace("/[\/\(\)]/", "", $optionInfo['po_description']) ?>
 																			</h5>
 																			<h5 class="items_config_title price_data get_price_html"
 																				data-optId="<?= $optionInfo["po_id"] ?>">
