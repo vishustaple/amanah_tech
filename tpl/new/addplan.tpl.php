@@ -1607,12 +1607,15 @@
 																	<label>Expiry Date</label>
 																	<div class="fields-20-20 d-flex gap-2">
 																		<input type="text" class="cc_field" name="ccm"
-																			placeholder="MM" id="ccm" required onkeyup="validateExpiryDate(this)">
+																			placeholder="MM" id="ccm" required onkeyup="validateMonth(this)">
+																			<br/>
+																			<small id="expiryMonth" class="text-danger"></small>
 																		<input type="text" class="cc_field" name="ccy"
-																			placeholder="YY" id="ccy" required onkeyup="validateExpiryDate(this)">
+																			placeholder="YY" id="ccy" required onkeyup="validateYear(this)"><br/>
+																			<small id="expiryYear" class="text-danger"></small>
 																	</div>
 																</span>
-																<small id="expiryError" class="text-danger"></small>
+															
 
 															</div>
 														</div>
