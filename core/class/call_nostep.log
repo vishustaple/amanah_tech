@@ -1,0 +1,530 @@
+URL: https://billing.amanah.com/api/2.0//?method=order.create
+POST Fields: Array
+(
+    [order_queue_id] => 7
+    [order_form_id] => 7
+    [info[pack1][plan_id]] => 70
+    [info[pack1][options][1274]] => 2105
+    [info[pack1][options][1271]] => 2106
+    [info[pack1][options][1259]] => 2019
+    [info[pack1][options][1279]] => 2084
+)
+
+Response: Array
+(
+    [order_id] => 6450
+    [data] => Array
+        (
+            [ts] => 1522210503
+            [order_form_id] => 7
+            [order_queue_id] => 7
+            [order_status] => 0
+            [priority] => 1
+            [owner] => 
+            [client_id] => 
+            [listed_company] => 
+            [total] => 111.75
+            [hash] => a223f-ecbe0
+            [activity] => 1522210503
+            [opportunity_id] => 0
+            [requested_completion] => 0
+            [planned_completion] => 0
+            [progress] => Array
+                (
+                )
+
+            [info] => Array
+                (
+                    [pack1] => Array
+                        (
+                            [plan_id] => 70
+                            [options] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [title] => Colo 1U
+                            [period] => 1
+                            [bill_type] => 0
+                            [auto_bill] => 0
+                            [quantity] => 1
+                            [desserv] => Colo 1U
+                            [tax_engine_id] => 0
+                            [coupon] => 
+                            [price] => 99.00
+                            [setup] => 99.00
+                            [prorate_date] => 1522555200
+                            [taxes] => Array
+                                (
+                                )
+
+                            [setup_taxes] => Array
+                                (
+                                )
+
+                            [cost] => 99
+                            [total_setup] => 99
+                            [prorated_total] => 12.75
+                            [prorate_bal] => 12.75
+                            [option] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [monthly_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [setup_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [options_desc] => Array
+                                (
+                                    [1274] => Toronto - 1 Yonge Street (Default)
+                                    [1271] => 30TB/100Mbps Uplink (Default)
+                                    [1259] => /29 - 5 Usable IPs (Default)
+                                    [1279] => No additional Amp (Default)
+                                )
+
+                            [groups_desc] => Array
+                                (
+                                    [1274] => Datacenter Location
+                                    [1271] => Bandwidth
+                                    [1259] => IP`s
+                                    [1279] => Power
+                                )
+
+                            [option_inv_hide] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_setup_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_setup_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                        )
+
+                    [taxes] => Array
+                        (
+                        )
+
+                    [coupon_credits] => Array
+                        (
+                        )
+
+                    [coupon_ids] => Array
+                        (
+                        )
+
+                )
+
+            [signature] => 
+        )
+
+    [data_changed] => 
+    [trigger_updated_event] => 1
+    [step] => Array
+        (
+            [order_step_id] => 0
+            [data] => Array
+                (
+                    [i18n] => Array
+                        (
+                            [1] => Array
+                                (
+                                    [lang_id] => 1
+                                    [name] => 
+                                )
+
+                        )
+
+                )
+
+            [queue] => 
+            [i18n_column] => Array
+                (
+                    [0] => name
+                )
+
+            [non_editable_steps] => Array
+                (
+                    [0] => 1
+                    [1] => 2
+                    [2] => 3
+                )
+
+        )
+
+    [queue] => Array
+        (
+            [order_queue_id] => 7
+            [data] => Array
+                (
+                    [order_queue_id] => 7
+                    [class_id] => 1
+                    [active] => 1
+                    [name] => Test Pro-rate
+                    [allow_quotes] => 1
+                    [sendlink_from] => sales@amanah.com
+                    [sendlink_sub] => 
+                    [sendlink_body] => 
+                    [confirmation_type] => 1
+                    [confirmation_url] => 
+                    [confirmation_autopay_success] => 
+                    [confirmation_autopay_failure] => 
+                    [confirmation_manualpay] => 
+                    [i18n] => Array
+                        (
+                            [1] => Array
+                                (
+                                    [lang_id] => 1
+                                    [name] => Test Pro-rate
+                                    [sendlink_sub] => 
+                                    [sendlink_body] => 
+                                    [confirmation_autopay_success] => 
+                                    [confirmation_autopay_failure] => 
+                                    [confirmation_manualpay] => 
+                                )
+
+                        )
+
+                )
+
+            [order_queue_fields] => Array
+                (
+                    [0] => class_id
+                    [1] => active
+                    [2] => name
+                    [3] => allow_quotes
+                    [4] => sendlink_from
+                    [5] => sendlink_sub
+                    [6] => sendlink_body
+                    [7] => confirmation_type
+                    [8] => confirmation_url
+                )
+
+            [i18n_column] => Array
+                (
+                    [0] => name
+                    [1] => sendlink_sub
+                    [2] => sendlink_body
+                    [3] => confirmation_autopay_success
+                    [4] => confirmation_autopay_failure
+                    [5] => confirmation_manualpay
+                )
+
+        )
+
+    [form] => Array
+        (
+            [id] => 7
+            [data] => Array
+                (
+                    [order_form_id] => 7
+                    [order_queue_id] => 7
+                    [active] => 1
+                    [priority] => 0
+                    [name] => Pro-rating Order Form (dev test)
+                    [plan_id] => 70
+                    [config] => Array
+                        (
+                            [auto_generate_pass] => 1
+                            [existing_client_check] => 0
+                            [billing_settings] => Array
+                                (
+                                    [prorate_bool] => 1
+                                    [prorate_day] => 1
+                                    [extended_prorate_day] => 0
+                                    [coupon_bool] => 1
+                                    [coupon_option] => 0
+                                    [accept_cc] => 1
+                                    [accept_paypal] => 1
+                                    [extended_prorate_bool] => 0
+                                    [accept_ach_prior_auth] => 0
+                                    [accept_ach_onsubmit] => 0
+                                    [accept_phone] => 0
+                                    [accept_check] => 0
+                                    [pay_phone] => Array
+                                        (
+                                            [default] => 
+                                            [display] => 1
+                                            [change] => 0
+                                        )
+
+                                    [remit_to] => Array
+                                        (
+                                            [default] => Amanah Tech Inc.
+151 front Street West
+Toronto, ON, Canada 
+
+                                            [display] => 1
+                                            [change] => 0
+                                        )
+
+                                )
+
+                            [template] => 
+                            [affiliate_settings] => Array
+                                (
+                                    [idev_url] => 
+                                    [idev_variable_name_1] => 
+                                    [idev_variable_value_1] => 
+                                    [idev_variable_name_2] => 
+                                    [idev_variable_value_2] => 
+                                    [idev_variable_name_3] => 
+                                    [idev_variable_value_3] => 
+                                )
+
+                        )
+
+                    [defaults] => 
+                    [header] => 
+                    [footer] => 
+                    [css] => 
+th.hdr {
+
+}
+
+#group_buttons td {
+
+}
+
+td.label {
+
+}
+
+                )
+
+            [queue] => 
+        )
+
+    [summary] => Array
+        (
+            [total_setup] => 99
+            [total_price] => 99
+            [prorated_total] => 12.75
+            [total_price_discount] => 0
+            [total_setup_discount] => 0
+            [pack] => Array
+                (
+                )
+
+            [taxes] => Array
+                (
+                )
+
+            [prorated_dates] => Array
+                (
+                    [Apr/01/2018] => Apr/01/2018
+                )
+
+            [coupon_credits] => Array
+                (
+                )
+
+        )
+
+    [orig_data] => Array
+        (
+            [ts] => 1522210503
+            [order_form_id] => 7
+            [order_queue_id] => 7
+            [order_status] => 0
+            [priority] => 1
+            [owner] => 
+            [client_id] => 
+            [listed_company] => 
+            [total] => 111.75
+            [hash] => a223f-ecbe0
+            [activity] => 1522210503
+            [opportunity_id] => 0
+            [requested_completion] => 0
+            [planned_completion] => 0
+            [progress] => Array
+                (
+                )
+
+            [info] => Array
+                (
+                    [pack1] => Array
+                        (
+                            [plan_id] => 70
+                            [options] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [title] => Colo 1U
+                            [period] => 1
+                            [bill_type] => 0
+                            [auto_bill] => 0
+                            [quantity] => 1
+                            [desserv] => Colo 1U
+                            [tax_engine_id] => 0
+                            [coupon] => 
+                            [price] => 99.00
+                            [setup] => 99.00
+                            [prorate_date] => 1522555200
+                            [taxes] => Array
+                                (
+                                )
+
+                            [setup_taxes] => Array
+                                (
+                                )
+
+                            [cost] => 99
+                            [total_setup] => 99
+                            [prorated_total] => 12.75
+                            [prorate_bal] => 12.75
+                            [option] => Array
+                                (
+                                    [1274] => 2105
+                                    [1271] => 2106
+                                    [1259] => 2019
+                                    [1279] => 2084
+                                )
+
+                            [monthly_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [setup_fee] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [options_desc] => Array
+                                (
+                                    [1274] => Toronto - 1 Yonge Street (Default)
+                                    [1271] => 30TB/100Mbps Uplink (Default)
+                                    [1259] => /29 - 5 Usable IPs (Default)
+                                    [1279] => No additional Amp (Default)
+                                )
+
+                            [groups_desc] => Array
+                                (
+                                    [1274] => Datacenter Location
+                                    [1271] => Bandwidth
+                                    [1259] => IP`s
+                                    [1279] => Power
+                                )
+
+                            [option_inv_hide] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                            [option_setup_discount] => Array
+                                (
+                                    [1274] => 0.00
+                                    [1271] => 0.00
+                                    [1259] => 0.00
+                                    [1279] => 0.00
+                                )
+
+                            [option_setup_discount_type] => Array
+                                (
+                                    [1274] => 0
+                                    [1271] => 0
+                                    [1259] => 0
+                                    [1279] => 0
+                                )
+
+                        )
+
+                    [taxes] => Array
+                        (
+                        )
+
+                    [coupon_credits] => Array
+                        (
+                        )
+
+                    [coupon_ids] => Array
+                        (
+                        )
+
+                )
+
+            [signature] => 
+        )
+
+    [quote] => 
+)
