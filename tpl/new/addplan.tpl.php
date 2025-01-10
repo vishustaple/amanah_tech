@@ -1592,21 +1592,31 @@
 																	<label>Card Number</label>
 																	<input type="text" name="ccNum" id="ccNum"
 																		class="cc_field" placeholder="Card Number"
-																		required>
+																		required onkeyup="validateCardNumber(this)">
 																</span>
+																		<small id="ccNumError" class="text-danger" style="display:none;"></small>
+				<!-- Image container for card -->
+				<div id="cardImageContainer" style="display:none;">
+					<img id="cardImage" src="" alt="Card Image" style="max-width: 50px; margin-top: 10px;">
+				</div>
 															</div>
 														</div>
 														<div class="col-md-6">
 															<div class="form-group">
 																<span class="ccspan">
 																	<label>Expiry Date</label>
-																	<div class="fields-50-50 d-flex gap-2">
+																	<div class="fields-20-20 d-flex gap-2">
 																		<input type="text" class="cc_field" name="ccm"
-																			placeholder="MM" id="ccm" required>
+																			placeholder="MM" id="ccm" required onkeyup="validateMonth(this)">
+																			<br/>
+																			<small id="expiryMonth" class="text-danger"></small>
 																		<input type="text" class="cc_field" name="ccy"
-																			placeholder="YY" id="ccy" required>
+																			placeholder="YY" id="ccy" required onkeyup="validateYear(this)"><br/>
+																			<small id="expiryYear" class="text-danger"></small>
 																	</div>
 																</span>
+															
+
 															</div>
 														</div>
 														<div class="col-md-6">
@@ -1614,8 +1624,9 @@
 																<span class="ccspan">
 																	<label>Card CVV</label>
 																	<input type="text" class="cc_field" name="cccvv2"
-																		placeholder="Card CVV" id="cccvv2" required>
+																		placeholder="Card CVV" id="cccvv2" required onkeyup="validateCVV(this)">
 																</span>
+																<small id="cvvError" class="text-danger"></small>
 															</div>
 														</div>
 													</div>
