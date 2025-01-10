@@ -27,16 +27,15 @@ function sendEmailTesting($attachments, $emails,$userName) {
             if (file_exists($attachment)) {
                $mail->AddAttachment($attachment); 
             } 
+            
         }
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Order Term & Condition Information from Amanah';
-        $mail->Body    = '<strong>Thank you for your order!</strong><br/>
-        <p>Please find the signed copy of the Service Level Agreement attached.</p> <br/> <p>If you have any questions, 
+        $mail->Body = '<strong>Dear ' . htmlspecialchars($userName) . ',</strong><br/>Thank you for your order!
+        <p>Please find the signed copy of the Service Level Agreement attached.</p> <br/><p>If you have any questions, 
         feel free to contact us at billing@amanah.com.</p><br />
         <p>Best regards,</p><br/><p>Team Amanah</p>';
-       
-
         // Send the email
         $mail->send();
         return true;
