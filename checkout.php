@@ -18,8 +18,6 @@ $coupon = null;
 
 if($_POST["s"]=="")
 {
-	
-	
 	$orderID=$_GET["forder"];
 	$order = $client->call($_UBER_API_URL,'order.get',array(
 		'hash' => $orderID,
