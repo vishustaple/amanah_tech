@@ -124,7 +124,7 @@ if($_POST["s"]=="")
 
 	// $tpl->_TAX_RATE = $_TAX_RATE;
 
-	// //Always display the actual total, display errors are better than billing errors. 
+	// //Always display the actual total. 
 	// $tpl->total = $order["total"]; 
 
 	// $tpl->email = $clientData["email"];
