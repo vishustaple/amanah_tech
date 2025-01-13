@@ -1573,7 +1573,7 @@
 																</span>
 															</div>
 														</div>
-														<div class="col-md-6">
+														<div class="col-md-12">
 															<div class="form-group">
 																<span>
 																	<label class="paylabel">&nbsp;</label>
@@ -1589,7 +1589,7 @@
 																	order and pay with PayPal below.</span>
 															</div>
 														</div>
-														<div class="col-md-8">
+														<div class="col-md-6">
 															<div class="form-group">
 																<span class="ccspan">
 																	<label>Card Number</label>
@@ -1601,28 +1601,34 @@
 			
 															</div>
 														</div>
-														<div class="col-md-6">
+														<div class="col-md-4">
 															<div class="form-group">
 																<span class="ccspan">
-																	<label>Expiry Date</label>
-																	<div class="fields-20-20 d-flex gap-2">
+																	<label>Expiry Month</label>
+																	<div class="fields-20-20 d-flex gap-3">
 																	<span class="ccspan">
 																		<input type="text" class="cc_field" name="ccm"
 																			placeholder="MM" id="ccm" required onkeyup="validateMonth(this)">
 																	</span>
 																			<br>
-																			<small id="expiryMonth" class="text-danger"></small>
-																			<span class="ccspan">
+																			
+																			
+																	</div>
+																</span>
+																<small id="expiryMonth" class="text-danger"></small>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+															<span class="ccspan">
+															<label>Expiry Year</label>
 																		<input type="text" class="cc_field" name="ccy"
 																			placeholder="YY" id="ccy" required onkeyup="validateYear(this)">
 																			</span><br>
 																			<small id="expiryYear" class="text-danger"></small>
-																	</div>
-																</span>
-														
 															</div>
 														</div>
-														<div class="col-md-6">
+														<div class="col-md-3">
 															<div class="form-group">
 																<span class="ccspan">
 																	<label>Card CVV</label>
@@ -1633,7 +1639,7 @@
 															</div>
 														</div>
 														<div class="col-md-10">
-														<div class="form-group" style="display: flex; align-items: center; height: 20px;">
+														<div class="form-group" style="display: flex; align-items: center;flex-wrap:wrap">
 															<div style="margin-right: 10px;">
 																<input type="checkbox" required id="term_condition">
 															</div>
@@ -1642,8 +1648,10 @@
 																	<a href="https://order.amanah.com/tos.html" target="_blank">Term of Service</a>
 																</span>
 															</div>
-															<div>
+															<div style="width:100%;padding-bottom:10px">
+																<p>
 																<small id="term_condition_error" class="text-danger" style="display:none; margin-left: 5px;"></small>
+																</p>
 															</div>
 														</div>
 													</div>
