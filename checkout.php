@@ -1,5 +1,6 @@
 <?php
 session_start();
+set_time_limit(300);
 error_reporting(0);
 require_once(dirname(__FILE__) .'/core/config.php');
 require_once(dirname(__FILE__) .'/core/functions.php');
@@ -199,6 +200,13 @@ else{
 			'email' => $_POST["email"],
 		)); 
 
+		// if($newCC == false){
+		// 	$ccAddDetails = $client->call($_UBER_API_URL,'client.cc_info',array(
+		// 		'client_id' => $order["client_id"], 
+				
+		// 	)); 
+		// 	$response['ccddd'] = $ccAddDetails;
+		// }
 
 		if(isset($_REQUEST['forder']))
 		{
@@ -289,7 +297,6 @@ else{
 		if ($getOrder['info']['payment_type'] == 'paypal') {
 			$delStart = strpos($submit, '<p>');
 			$delEnd = strpos($submit, '<input type="submit"');
-			
 			// Prepare the button content
 			$response['button'] = substr($submit, 0, $delStart) . substr($submit, $delEnd);
 
@@ -307,7 +314,6 @@ else{
 		$response['email_send'] = $emailStaus;
 		// Convert the response array into a JSON object and output it
 		echo json_encode($response);
-	
 		// //If payment if via PayPal, get some info to display to the user
 		// $tpl->total=$getOrder["total"];
 		// if($getOrder["info"]["payment_type"] == 'paypal')

@@ -589,13 +589,16 @@
 															<h2>Draw your signature </h2>
 															<p class="text-left">Move your cursor or finger inside the
 																dotted space</p>
+																<p class="text-danger" id="signature_error"></p>
 															<input type="text" name="save_signature" id="signatureInput"
 																placeholder="Or type your name here"
 																style="padding: 5px; font-size: 14px; width: 300px;">
 															<div
 																class="button-group d-flex justify-content-between align-items-center ">
+															
 																<p class="mb-0 pdf_signed_count_two">Signed Documents:
 																	0/2</p>
+																	
 																<button class="save" id="saveButton" data-id="1">Accept
 																	add Sign <i class="fa fa-check"
 																		aria-hidden="true"></i>
@@ -1576,7 +1579,7 @@
 																	<label class="paylabel">&nbsp;</label>
 																	<span class="d-flex gap-3 align-items-center payswitchbox">
 																		<i class="fa fa-credit-card-alt fa-3x payswitch pay-icon pay-icon-selected"
-																			id="cclink" aria-hidden="true"></i>
+																			id="cclink" aria-hidden="true" style="background-color: #ba9559;"></i>
 																		<img class="payswitch pay-icon paypal-image"
 																			id="pplink" aria-hidden="true"
 																			src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png">
@@ -1586,7 +1589,7 @@
 																	order and pay with PayPal below.</span>
 															</div>
 														</div>
-														<div class="col-md-12">
+														<div class="col-md-8">
 															<div class="form-group">
 																<span class="ccspan">
 																	<label>Card Number</label>
@@ -1595,10 +1598,7 @@
 																		required onkeyup="validateCardNumber(this)">
 																</span>
 																		<small id="ccNumError" class="text-danger" style="display:none;"></small>
-				<!-- Image container for card -->
-				<div id="cardImageContainer" style="display:none;">
-					<img id="cardImage" src="" alt="Card Image" style="max-width: 50px; margin-top: 10px;">
-				</div>
+			
 															</div>
 														</div>
 														<div class="col-md-6">
@@ -1606,17 +1606,20 @@
 																<span class="ccspan">
 																	<label>Expiry Date</label>
 																	<div class="fields-20-20 d-flex gap-2">
+																	<span class="ccspan">
 																		<input type="text" class="cc_field" name="ccm"
 																			placeholder="MM" id="ccm" required onkeyup="validateMonth(this)">
-																			<br/>
+																	</span>
+																			<br>
 																			<small id="expiryMonth" class="text-danger"></small>
+																			<span class="ccspan">
 																		<input type="text" class="cc_field" name="ccy"
-																			placeholder="YY" id="ccy" required onkeyup="validateYear(this)"><br/>
+																			placeholder="YY" id="ccy" required onkeyup="validateYear(this)">
+																			</span><br>
 																			<small id="expiryYear" class="text-danger"></small>
 																	</div>
 																</span>
-															
-
+														
 															</div>
 														</div>
 														<div class="col-md-6">
@@ -1629,7 +1632,29 @@
 																<small id="cvvError" class="text-danger"></small>
 															</div>
 														</div>
+														<div class="col-md-10">
+														<div class="form-group" style="display: flex; align-items: center; height: 20px;">
+															<div style="margin-right: 10px;">
+																<input type="checkbox" required id="term_condition">
+															</div>
+															<div>
+																<span>I agree with Amanah's 
+																	<a href="https://order.amanah.com/tos.html" target="_blank">Term of Service</a>
+																</span>
+															</div>
+															<div>
+																<small id="term_condition_error" class="text-danger" style="display:none; margin-left: 5px;"></small>
+															</div>
+														</div>
 													</div>
+
+
+
+
+
+
+													</div>
+													
 													<div class="checkout-submit">
 														<button class="paypal-button disp-none submitButton" id="pp-submit">Pay with PayPal</button>
 

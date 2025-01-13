@@ -10,10 +10,10 @@ function sendEmailTesting($attachments, $emails,$userName) {
     try {
         // Server settings
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'sandbox.smtp.mailtrap.io';              // Specify main and backup SMTP servers (e.g., Gmail)
-        $mail->SMTPAuth = true;                                // Enable SMTP authentication
-        $mail->Username = '061819b064e1ec';                    // SMTP username
-        $mail->Password = 'e78994cd227227';                    // SMTP password
+        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Username = '061819b064e1ec';
+        $mail->Password = 'e78994cd227227';                     // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;    // Enable TLS encryption
         $mail->Port = 2525;                                    // TCP port to connect to (587 for TLS)
         // From email
