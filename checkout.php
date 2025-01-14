@@ -200,14 +200,6 @@ else{
 			'email' => $_POST["email"],
 		)); 
 
-		// if($newCC == false){
-		// 	$ccAddDetails = $client->call($_UBER_API_URL,'client.cc_info',array(
-		// 		'client_id' => $order["client_id"], 
-				
-		// 	)); 
-		// 	$response['ccddd'] = $ccAddDetails;
-		// }
-
 		if(isset($_REQUEST['forder']))
 		{
 			//Assign the stored CC id to the order
@@ -288,8 +280,7 @@ else{
 			'hash' => $orderID,
 		)); 
 		
-		// Initialize response array
-	
+		
 		// Set the total
 		$response['total'] = $getOrder['total'];
 

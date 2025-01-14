@@ -11,5 +11,7 @@ $client = new uber_api_client($_API_USER,$_API_PASS);
 $forgotPass = $client->call($_UBER_API_URL,'uber.forgot_pass',array(
 	'email' => $_REQUEST["email"] ,
 ));
+echo $forgotPass;
+die;
 
 echo json_encode(true); 

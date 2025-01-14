@@ -1579,10 +1579,10 @@
 																	<label class="paylabel">&nbsp;</label>
 																	<span class="d-flex gap-3 align-items-center payswitchbox">
 																		<i class="fa fa-credit-card-alt fa-3x payswitch pay-icon pay-icon-selected"
-																			id="cclink" aria-hidden="true" style="background-color: #ba9559;"></i>
+																			id="cclink" aria-hidden="true" style="background-color: #ffc439;padding:10px"></i>
 																		<img class="payswitch pay-icon paypal-image"
 																			id="pplink" aria-hidden="true"
-																			src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png">
+																			src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" style="padding:10px">
 																	</span>
 																</span>
 																<span class="form-display-text ppspan disp-none">Review
