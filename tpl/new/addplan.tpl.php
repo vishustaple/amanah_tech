@@ -91,7 +91,8 @@
 																	echo $groupInfo["options"][array_key_first($groupInfo["options"])]['pog_name'];
 																}
 																?> -->
-																<?= preg_replace("/[\/\(\)]/", "", $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description']) ?>
+																<!-- < ?= preg_replace("/[\/\(\)]/", "", $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description']) ?> -->
+																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description']?>
 															</h5>
 															<h5 class="items_config_title price_data set_price_html <?= $firstPrice ?>"
 																data-optId="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>">
@@ -116,7 +117,8 @@
 																				<!-- < ?php if ($optionInfo["pog_id"] != 0) { ?>
 																					< ?= $optionInfo["pog_name"] ?>
 																				< ?php } ?> -->
-																				<?= preg_replace("/[\/\(\)]/", "", $optionInfo['po_description']) ?>
+																				<!-- < ?= preg_replace("/[\/\(\)]/", "", $optionInfo['po_description']) ?> -->
+																				 <?= $optionInfo['po_description'] ?>
 																			</h5>
 																			<h5 class="items_config_title price_data get_price_html"
 																				data-optId="<?= $optionInfo["po_id"] ?>">
