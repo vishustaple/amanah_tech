@@ -7,9 +7,11 @@
 	<title>Amanah Tech</title>
 	<link rel="stylesheet" type="text/css" href="lib/style1.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
-	<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+	<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
+		type='text/css'>
 </head>
 <script>
 	var priceModelJSON = "<?= addslashes($this->priceJSON) ?>",
@@ -37,9 +39,9 @@
 
 						<!-- progressbar -->
 						<ul id="progressbar">
-							<li class="active" id="account"><strong> Select Hardware</strong></li>
+							<li class="active" id="account"><strong>Configure</strong></li>
 							<li id="personal"><strong>Summary</strong></li>
-							<li id="payment"><strong>Proceed to Checkout</strong></li>
+							<li id="payment"><strong>Terms and Policies</strong></li>
 							<li id="confirm"><strong>Log in</strong></li>
 							<li id="checkout_sec"><strong>Checkout</strong></li>
 							<li id="complete_sec"><strong>Complete</strong></li>
@@ -68,12 +70,13 @@
 										<div class="col-lg-9">
 											<div class="card_list">
 
-												<h5 class="card_title">Hardware Configuration</h5>
+												<h5 class="card_title d-flex justify-content-between">Hardware Configuration <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
+												
 												<?php $firstName = 'first_prd_name';
 												$firstPrice = 'first_prd_price';
-												
+
 												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo) {
-													
+
 													// echo"<pre>";print_r($groupInfo); ?>
 													<div class="items_list">
 														<div class="items_name">
@@ -86,13 +89,13 @@
 																id="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>"
 																value="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>" />
 															<h5 class="items_config_title set_prd_name <?= $firstName ?>">
-															<!-- < ?php 
+																<!-- < ?php 
 																if ($groupInfo["pu_name"] != 'CPU') {
 																	echo $groupInfo["options"][array_key_first($groupInfo["options"])]['pog_name'];
 																}
 																?> -->
 																<!-- < ?= preg_replace("/[\/\(\)]/", "", $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description']) ?> -->
-																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description']?>
+																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
 															</h5>
 															<h5 class="items_config_title price_data set_price_html <?= $firstPrice ?>"
 																data-optId="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>">
@@ -118,7 +121,7 @@
 																					< ?= $optionInfo["pog_name"] ?>
 																				< ?php } ?> -->
 																				<!-- < ?= preg_replace("/[\/\(\)]/", "", $optionInfo['po_description']) ?> -->
-																				 <?= $optionInfo['po_description'] ?>
+																				<?= $optionInfo['po_description'] ?>
 																			</h5>
 																			<h5 class="items_config_title price_data get_price_html"
 																				data-optId="<?= $optionInfo["po_id"] ?>">
@@ -144,9 +147,9 @@
 															<label for="billing-period">Billing Period</label>
 															<select id="billing-period" class="form-control">
 																<option value="1">Monthly</option>
-																<option value="3">Quarterly</option>
-																<option value="6">Semi-Annually</option>
-																<option value="12">Annually</option>
+																<option value="3">Quarterly - SAVE 5%</option>
+																<option value="6">Semi-Annually - SAVE 7%</option>
+																<option value="12">Annually - SAVE 10%</option>
 															</select>
 														</div>
 														<div class="quantity-section">
@@ -199,13 +202,17 @@
 														<!-- <button class="btn-summary next" value="Next">PROCEED TO SUMMARY</button> -->
 														<!-- <input type="button" name="next" class="next action-button" value="PROCEED TO SUMMARY" /> -->
 													</div>
+
+													<div class="btn_wrapper">
+                                                 <label for="test" class="custom-btn">PROCEED TO SUMMARY</label>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</form>
-							<input type="button" name="next" class="next action-button" value="PROCEED TO SUMMARY" />
+							<input type="button" id="test" name="next" class="next d-none action-button" value="PROCEED TO SUMMARY" />
 							<!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
 						</fieldset>
 						<fieldset>
@@ -270,13 +277,16 @@
 													</div>
 													<!-- <button class="btn-summary">PROCEED TO SUMMARY</button> -->
 												</div>
+												<div class="btn_wrapper">
+												<label for="test2" class="custom-btn">Proceed to Terms and Policies</label>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
-							<input type="button" name="next" class="next action-button "
+							<input type="button" name="next" id="test2" class="next d-none action-button "
 								value="Proceed to Terms and Policies" />
 							<input type="button" name="previous" class="previous action-button-previous"
 								id="click_checkout_pre_one" value="Previous" />
@@ -591,16 +601,16 @@
 															<h2>Draw your signature </h2>
 															<p class="text-left">Move your cursor or finger inside the
 																dotted space</p>
-																<p class="text-danger" id="signature_error"></p>
+															<p class="text-danger" id="signature_error"></p>
 															<input type="text" name="save_signature" id="signatureInput"
 																placeholder="Or type your name here"
 																style="padding: 5px; font-size: 14px; width: 300px;">
 															<div
 																class="button-group d-flex justify-content-between align-items-center ">
-															
+
 																<p class="mb-0 pdf_signed_count_two">Signed Documents:
 																	0/2</p>
-																	
+
 																<button class="save" id="saveButton" data-id="1">Accept
 																	add Sign <i class="fa fa-check"
 																		aria-hidden="true"></i>
@@ -1139,7 +1149,7 @@
 										<div class="checkout-form">
 											<h3> Checkout</h3>
 											<form id="checkout_form">
-											<input type="hidden" name="s" value="1" />
+												<input type="hidden" name="s" value="1" />
 												<input type="hidden" name="forder" id="chforder" />
 												<input type="hidden" name="pm" id="pm" value="pp" />
 												<div class="form-inner-container">
@@ -1148,8 +1158,8 @@
 															<div class="form-group">
 																<span>
 																	<label>First Name*</label>
-																	<input type="text" placeholder="First Name" name="fname"
-																		id="fname" required>
+																	<input type="text" placeholder="First Name"
+																		name="fname" id="fname" required>
 																</span>
 															</div>
 														</div>
@@ -1157,8 +1167,8 @@
 															<div class="form-group">
 																<span>
 																	<label>Last Name*</label>
-																	<input type="text" placeholder="Last Name" name="lname"
-																		id="lname" required>
+																	<input type="text" placeholder="Last Name"
+																		name="lname" id="lname" required>
 																</span>
 															</div>
 														</div>
@@ -1184,8 +1194,8 @@
 															<div class="form-group">
 																<span>
 																	<label>Address*</label>
-																	<input type="text" placeholder="Address" name="address"
-																		id="chaddress" required>
+																	<input type="text" placeholder="Address"
+																		name="address" id="chaddress" required>
 																</span>
 															</div>
 														</div>
@@ -1204,7 +1214,7 @@
 																	<label>State/Province</label>
 																	<!-- <input type="text" class="disp-inline"
 																		placeholder="State" name="state" id="statedropdown"> -->
-																	<select name="statedropdown" id="chstate" 
+																	<select name="statedropdown" id="chstate"
 																		class="styledDropdown  tax-form-data">
 																		<option value="">Select a State/Provice</option>
 																		<option style="font-weight:bold;" value=""
@@ -1215,7 +1225,8 @@
 																		<option value="MB">Manitoba</option>
 																		<option value="NB">New Brunswick</option>
 																		<option value="NF">Newfoundland</option>
-																		<option value="NT">Northwest Territories</option>
+																		<option value="NT">Northwest Territories
+																		</option>
 																		<option value="NS">Nova Scotia</option>
 																		<option value="NU">Nunavut</option>
 																		<option value="ON">Ontario</option>
@@ -1224,7 +1235,8 @@
 																		<option value="SK">Saskatchewan</option>
 																		<option value="YT">Yukon Territory</option>
 																		<option style="font-weight:bold;" value=""
-																			disabled="">---------- United States ----------
+																			disabled="">---------- United States
+																			----------
 																		</option>
 																		<option value="AK">Alaska</option>
 																		<option value="AL">Alabama</option>
@@ -1297,7 +1309,8 @@
 																	<label>Country*</label>
 																	<select class="country-select tax-form-data"
 																		name="country" id="chcountry" required>
-																		<option value="" disabled="" selected="selected">
+																		<option value="" disabled=""
+																			selected="selected">
 																			Select a Country</option>
 																		<option value="CA">Canada</option>
 																		<option value="US">United States</option>
@@ -1330,11 +1343,13 @@
 																		<option value="BM">Bermuda</option>
 																		<option value="BT">Bhutan</option>
 																		<option value="BO">Bolivia</option>
-																		<option value="BA">Bosnia and Herzegovina</option>
+																		<option value="BA">Bosnia and Herzegovina
+																		</option>
 																		<option value="BW">Botswana</option>
 																		<option value="BV">Bouvet Island</option>
 																		<option value="BR">Brazil</option>
-																		<option value="IO">British Indian Ocean Territory
+																		<option value="IO">British Indian Ocean
+																			Territory
 																		</option>
 																		<option value="BN">Brunei Darussalam</option>
 																		<option value="BG">Bulgaria</option>
@@ -1344,16 +1359,19 @@
 																		<option value="CM">Cameroon</option>
 																		<option value="CV">Cape Verde</option>
 																		<option value="KY">Cayman Islands</option>
-																		<option value="CF">Central African Republic</option>
+																		<option value="CF">Central African Republic
+																		</option>
 																		<option value="TD">Chad</option>
 																		<option value="CL">Chile</option>
 																		<option value="CN">China</option>
 																		<option value="CX">Christmas Island</option>
-																		<option value="CC">Cocos (Keeling) Islands</option>
+																		<option value="CC">Cocos (Keeling) Islands
+																		</option>
 																		<option value="CO">Colombia</option>
 																		<option value="KM">Comoros</option>
 																		<option value="CG">Congo</option>
-																		<option value="CD">Congo, The Democratic Republic of
+																		<option value="CD">Congo, The Democratic
+																			Republic of
 																			The</option>
 																		<option value="CK">Cook Islands</option>
 																		<option value="CR">Costa Rica</option>
@@ -1400,7 +1418,8 @@
 																		<option value="GW">Guinea-bissau</option>
 																		<option value="GY">Guyana</option>
 																		<option value="HT">Haiti</option>
-																		<option value="HM">Heard Island and Mcdonald Islands
+																		<option value="HM">Heard Island and Mcdonald
+																			Islands
 																		</option>
 																		<option value="VA">Holy See (Vatican City State)
 																		</option>
@@ -1429,18 +1448,21 @@
 																		<option value="KR">Korea, Republic of</option>
 																		<option value="KW">Kuwait</option>
 																		<option value="KG">Kyrgyzstan</option>
-																		<option value="LA">Lao People's Democratic Republic
+																		<option value="LA">Lao People's Democratic
+																			Republic
 																		</option>
 																		<option value="LV">Latvia</option>
 																		<option value="LB">Lebanon</option>
 																		<option value="LS">Lesotho</option>
 																		<option value="LR">Liberia</option>
-																		<option value="LY">Libyan Arab Jamahiriya</option>
+																		<option value="LY">Libyan Arab Jamahiriya
+																		</option>
 																		<option value="LI">Liechtenstein</option>
 																		<option value="LT">Lithuania</option>
 																		<option value="LU">Luxembourg</option>
 																		<option value="MO">Macao</option>
-																		<option value="MK">Macedonia, The Former Yugoslav
+																		<option value="MK">Macedonia, The Former
+																			Yugoslav
 																			Republic of</option>
 																		<option value="MG">Madagascar</option>
 																		<option value="MW">Malawi</option>
@@ -1454,7 +1476,8 @@
 																		<option value="MU">Mauritius</option>
 																		<option value="YT">Mayotte</option>
 																		<option value="MX">Mexico</option>
-																		<option value="FM">Micronesia, Federated States of
+																		<option value="FM">Micronesia, Federated States
+																			of
 																		</option>
 																		<option value="MD">Moldova, Republic of</option>
 																		<option value="MC">Monaco</option>
@@ -1476,12 +1499,14 @@
 																		<option value="NG">Nigeria</option>
 																		<option value="NU">Niue</option>
 																		<option value="NF">Norfolk Island</option>
-																		<option value="MP">Northern Mariana Islands</option>
+																		<option value="MP">Northern Mariana Islands
+																		</option>
 																		<option value="NO">Norway</option>
 																		<option value="OM">Oman</option>
 																		<option value="PK">Pakistan</option>
 																		<option value="PW">Palau</option>
-																		<option value="PS">Palestinian Territory, Occupied
+																		<option value="PS">Palestinian Territory,
+																			Occupied
 																		</option>
 																		<option value="PA">Panama</option>
 																		<option value="PG">Papua New Guinea</option>
@@ -1498,15 +1523,18 @@
 																		<option value="RU">Russian Federation</option>
 																		<option value="RW">Rwanda</option>
 																		<option value="SH">Saint Helena</option>
-																		<option value="KN">Saint Kitts and Nevis</option>
+																		<option value="KN">Saint Kitts and Nevis
+																		</option>
 																		<option value="LC">Saint Lucia</option>
 																		<option value="PM">Saint Pierre and Miquelon
 																		</option>
-																		<option value="VC">Saint Vincent and The Grenadines
+																		<option value="VC">Saint Vincent and The
+																			Grenadines
 																		</option>
 																		<option value="WS">Samoa</option>
 																		<option value="SM">San Marino</option>
-																		<option value="ST">Sao Tome and Principe</option>
+																		<option value="ST">Sao Tome and Principe
+																		</option>
 																		<option value="SA">Saudi Arabia</option>
 																		<option value="SN">Senegal</option>
 																		<option value="RS">Serbia</option>
@@ -1524,7 +1552,8 @@
 																		<option value="LK">Sri Lanka</option>
 																		<option value="SD">Sudan</option>
 																		<option value="SR">Suriname</option>
-																		<option value="SJ">Svalbard and Jan Mayen</option>
+																		<option value="SJ">Svalbard and Jan Mayen
+																		</option>
 																		<option value="SZ">Swaziland</option>
 																		<option value="SE">Sweden</option>
 																		<option value="CH">Switzerland</option>
@@ -1543,7 +1572,8 @@
 																		<option value="TN">Tunisia</option>
 																		<option value="TR">Turkey</option>
 																		<option value="TM">Turkmenistan</option>
-																		<option value="TC">Turks and Caicos Islands</option>
+																		<option value="TC">Turks and Caicos Islands
+																		</option>
 																		<option value="TV">Tuvalu</option>
 																		<option value="UG">Uganda</option>
 																		<option value="UA">Ukraine</option>
@@ -1556,7 +1586,8 @@
 																		<option value="VU">Vanuatu</option>
 																		<option value="VE">Venezuela</option>
 																		<option value="VN">Viet Nam</option>
-																		<option value="VG">Virgin Islands, British</option>
+																		<option value="VG">Virgin Islands, British
+																		</option>
 																		<option value="VI">Virgin Islands, U.S.</option>
 																		<option value="WF">Wallis and Futuna</option>
 																		<option value="EH">Western Sahara</option>
@@ -1571,7 +1602,8 @@
 															<div class="form-group">
 																<span>
 																	<label>Company Name</label>
-																	<input type="text" name="company" id="chcompany" placeholder="Company Name">
+																	<input type="text" name="company" id="chcompany"
+																		placeholder="Company Name">
 																</span>
 															</div>
 														</div>
@@ -1579,9 +1611,11 @@
 															<div class="form-group">
 																<span>
 																	<label class="paylabel">&nbsp;</label>
-																	<span class="d-flex gap-3 align-items-center payswitchbox">
+																	<span
+																		class="d-flex gap-3 align-items-center payswitchbox">
 																		<i class="fa fa-credit-card-alt fa-3x payswitch pay-icon pay-icon-selected"
-																			id="cclink" aria-hidden="true" style="background-color: #ffc439;padding:10px"></i>
+																			id="cclink" aria-hidden="true"
+																			style="background-color: #ba9559;"></i>
 																		<img class="payswitch pay-icon paypal-image"
 																			id="pplink" aria-hidden="true"
 																			src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" style="padding:10px">
@@ -1599,8 +1633,9 @@
 																		class="cc_field" placeholder="Card Number"
 																		required onkeyup="validateCardNumber(this)">
 																</span>
-																		<small id="ccNumError" class="text-danger" style="display:none;"></small>
-			
+																<small id="ccNumError" class="text-danger"
+																	style="display:none;"></small>
+
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -1608,13 +1643,14 @@
 																<span class="ccspan">
 																	<label>Expiry Month</label>
 																	<div class="fields-20-20 d-flex gap-3">
-																	<span class="ccspan">
-																		<input type="text" class="cc_field" name="ccm"
-																			placeholder="MM" id="ccm" required onkeyup="validateMonth(this)">
-																	</span>
-																			<br>
-																			
-																			
+																		<span class="ccspan">
+																			<input type="text" class="cc_field"
+																				name="ccm" placeholder="MM" id="ccm"
+																				required onkeyup="validateMonth(this)">
+																		</span>
+																		<br>
+
+
 																	</div>
 																</span>
 																<small id="expiryMonth" class="text-danger"></small>
@@ -1622,12 +1658,13 @@
 														</div>
 														<div class="col-md-6">
 															<div class="form-group">
-															<span class="ccspan">
-															<label>Expiry Year</label>
-																		<input type="text" class="cc_field" name="ccy"
-																			placeholder="YY" id="ccy" required onkeyup="validateYear(this)">
-																			</span><br>
-																			<small id="expiryYear" class="text-danger"></small>
+																<span class="ccspan">
+																	<label>Expiry Year</label>
+																	<input type="text" class="cc_field" name="ccy"
+																		placeholder="YY" id="ccy" required
+																		onkeyup="validateYear(this)">
+																</span><br>
+																<small id="expiryYear" class="text-danger"></small>
 															</div>
 														</div>
 														<div class="col-md-3">
@@ -1635,28 +1672,33 @@
 																<span class="ccspan">
 																	<label>Card CVV</label>
 																	<input type="text" class="cc_field" name="cccvv2"
-																		placeholder="Card CVV" id="cccvv2" required onkeyup="validateCVV(this)">
+																		placeholder="Card CVV" id="cccvv2" required
+																		onkeyup="validateCVV(this)">
 																</span>
 																<small id="cvvError" class="text-danger"></small>
 															</div>
 														</div>
 														<div class="col-md-10">
-														<div class="form-group" style="display: flex; align-items: center;flex-wrap:wrap">
-															<div style="margin-right: 10px;">
-																<input type="checkbox" required id="term_condition">
-															</div>
-															<div>
-																<span>I agree with Amanah's 
-																	<a href="https://order.amanah.com/tos.html" target="_blank">Term of Service</a>
-																</span>
-															</div>
-															<div style="width:100%;padding-bottom:10px">
-																<p>
-																<small id="term_condition_error" class="text-danger" style="display:none; margin-left: 5px;"></small>
-																</p>
+															<div class="form-group"
+																style="display: flex; align-items: center;flex-wrap:wrap">
+																<div style="margin-right: 10px;">
+																	<input type="checkbox" required id="term_condition">
+																</div>
+																<div>
+																	<span>I agree with Amanah's
+																		<a href="https://order.amanah.com/tos.html"
+																			target="_blank">Term of Service</a>
+																	</span>
+																</div>
+																<div style="width:100%;padding-bottom:10px">
+																	<p>
+																		<small id="term_condition_error"
+																			class="text-danger"
+																			style="display:none; margin-left: 5px;"></small>
+																	</p>
+																</div>
 															</div>
 														</div>
-													</div>
 
 
 
@@ -1664,11 +1706,13 @@
 
 
 													</div>
-													
+
 													<div class="checkout-submit">
-														<button class="paypal-button disp-none submitButton" id="pp-submit">Pay with PayPal</button>
+														<button class="paypal-button disp-none submitButton"
+															id="pp-submit">Pay with PayPal</button>
 
-														<button class="sub-order-button submitButton" id="sub-order-button">Submit Order</button>
+														<button class="sub-order-button submitButton"
+															id="sub-order-button">Submit Order</button>
 														<!-- <button id="submitButton">Checkout</button> -->
 													</div>
 												</div>
@@ -1717,20 +1761,21 @@
 									</div>
 								</div>
 							</div>
-						<!-- </div> -->
-						<input type="button" name="next" class="next action-button" id="go_to_final_submit" value="Next" />
-						<!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
-					</fieldset>
-					<fieldset>
-						<div class="maincontent">
-							<div id="final_order_submition"></div>
-						</div>
-						
-					</fieldset>
+							<!-- </div> -->
+							<input type="button" name="next" class="next action-button" id="go_to_final_submit"
+								value="Next" />
+							<!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+						</fieldset>
+						<fieldset>
+							<div class="maincontent">
+								<div id="final_order_submition"></div>
+							</div>
+
+						</fieldset>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- partial -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
