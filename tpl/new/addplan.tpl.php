@@ -89,12 +89,6 @@
 																id="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>"
 																value="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>" />
 															<h5 class="items_config_title set_prd_name <?= $firstName ?>">
-																<!-- < ?php 
-																if ($groupInfo["pu_name"] != 'CPU') {
-																	echo $groupInfo["options"][array_key_first($groupInfo["options"])]['pog_name'];
-																}
-																?> -->
-																<!-- < ?= preg_replace("/[\/\(\)]/", "", $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description']) ?> -->
 																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
 															</h5>
 															<h5 class="items_config_title price_data set_price_html <?= $firstPrice ?>"
@@ -117,10 +111,7 @@
 																		data-value="<?= $optionInfo["po_id"] ?>">
 																		<div class="items_config">
 																			<h5 class="items_config_title get_prd_name">
-																				<!-- < ?php if ($optionInfo["pog_id"] != 0) { ?>
-																					< ?= $optionInfo["pog_name"] ?>
-																				< ?php } ?> -->
-																				<!-- < ?= preg_replace("/[\/\(\)]/", "", $optionInfo['po_description']) ?> -->
+																				
 																				<?= $optionInfo['po_description'] ?>
 																			</h5>
 																			<h5 class="items_config_title price_data get_price_html"
@@ -164,7 +155,7 @@
 													</div>
 													<div class="summary-section">
 														<h4>Order Summary</h4>
-														<div class="summary-list-item">
+														<div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 																Package Price
 															</span>
@@ -172,7 +163,7 @@
 																class="summary-list-item-price format-price package-price"></span>
 														</div>
 
-														<div class="summary-list-item">
+														<div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 																Package Setup
 															</span>
