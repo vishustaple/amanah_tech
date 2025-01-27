@@ -91,7 +91,7 @@
 															<h5 class="items_config_title set_prd_name <?= $firstName ?>">
 																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
 															</h5>
-															<h5 class="items_config_title price_data set_price_html <?= $firstPrice ?>"
+															<h5 class="items_config_title new_price_data price_data set_price_html<?= $firstPrice ?>"
 																data-optId="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>">
 																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pricing"]["1"]["price"] ?>
 																<i class="fa fa-caret-down" aria-hidden="true"></i>
