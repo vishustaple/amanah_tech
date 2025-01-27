@@ -31,7 +31,7 @@
 			</div>
 			<div class="d-flex gap-3" style="font-size:13px">
             <p>Speak To An Expert : +1(416) 603-9825</p>
-			<a href="#" class="text-decoration-none" style="font-size:13px">Live Chat</a>
+			<!-- <a href="#" class="text-decoration-none" style="font-size:13px">Live Chat</a> -->
 			</div>
 			</div>
 		</div>
