@@ -23,14 +23,14 @@
 	<div id="loader" class="loader-wrapper" style="display:none;">
 		<div class="loader"></div>
 	</div>
-	<header class="main-header py-4">
+	<header class="main-header py-2">
 		<div class="container">
-			<div class="d-flex justify-content-between">
+			<div class="d-flex justify-content-between align-items-center">
 			<div class="logo">
 				<a href="https://www.amanah.com/"><img src="img/single-logo1.png" alt="logo"></a>
 			</div>
 			<div class="d-flex gap-3" style="font-size:13px">
-            <p>Speak To An Expert : +1(416) 603-9825</p>
+            <p class="mb-0" style="color:#858585;text-transform:uppercase;">Speak To An Expert :<b> +1(416) 603-9825</b></p>
 			<!-- <a href="#" class="text-decoration-none" style="font-size:13px">Live Chat</a> -->
 			</div>
 			</div>

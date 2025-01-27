@@ -493,9 +493,10 @@ span.summary-list-item-label {
 }
 .logo {
     padding-bottom: 20px;
+}
+header{
     border-bottom: 1px solid #ddd;
 }
-
 .sign_box {
     background-color: #1b416f12;
     height: auto;
