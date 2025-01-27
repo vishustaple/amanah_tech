@@ -998,7 +998,7 @@ input#signatureInput {
     overflow-y: auto;
 }
 .terms_card p a {
-    color: #deffbe !important;
+    /* color: #deffbe !important; */
     font-size: 14px;
     text-transform: uppercase;
 }
