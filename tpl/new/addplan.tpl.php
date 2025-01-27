@@ -25,8 +25,14 @@
 	</div>
 	<header class="main-header py-4">
 		<div class="container">
+			<div class="d-flex justify-content-between">
 			<div class="logo">
-				<a href="#"><img src="img/single-logo1.png" alt="logo"></a>
+				<a href="https://www.amanah.com/"><img src="img/single-logo1.png" alt="logo"></a>
+			</div>
+			<div class="d-flex gap-3" style="font-size:13px">
+            <p>Speak To An Expert : +1(416) 603-9825</p>
+			<a href="#" class="text-decoration-none" style="font-size:13px">Live Chat</a>
+			</div>
 			</div>
 		</div>
 	</header>
@@ -213,8 +219,8 @@
 										<div class="terms_card">
 											<div class="d-flex justify-content-between align-items-center">
 												<h5 class="card_title">Order Summary</h5>
-												<p class="m-0 pe-3 "><a href="javascript:void(0);" id="checkout_pre_one"
-														class="text-white text-uppercase">Reconfigure</a></p>
+												<p class="m-0 pe-3"><a href="javascript:void(0);" id="checkout_pre_one"
+														class="text-light text-uppercase">Reconfigure</a></p>
 											</div>
 										</div>
 										<div class="card_list order_hide_title order_summary_title"></div>
@@ -1768,6 +1774,24 @@
 			</div>
 		</div>
 	</div>
+
+ <!-- footer -->
+  <footer>
+	<div class="container">
+		<div class="d-flex justify-content-between items-align-center">
+			<div>
+				<p class="text-light mb-0" style="font-size:12px"> &copy; 2025 AMANAH TECH | All Rights Reserved | We are a Canadian Colocation Data Center Company</p>
+			</div>
+			<div class="footer_links d-flex items-align-center gap-3" style="font-size:13px">
+              <a href="https://www.amanah.com/privacy-policy/" class="text-light">Privacy Policy</a>
+			  <a href="https://www.amanah.com/acceptable-use-policy" class="text-light">Acceptable Use Policy</a>
+			  <a href="https://www.amanah.com/legal-matters" class="text-light">Legal Matters</a>
+			  <a href="https://www.amanah.com/service-level-agreement" class="text-light">Service-Level Agreement</a>
+			</div>
+		</div>
+	</div>
+  </footer>
+
 	<!-- partial -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
