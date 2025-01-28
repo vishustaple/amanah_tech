@@ -168,7 +168,6 @@
 															<span
 																class="summary-list-item-price format-price package-price"></span>
 														</div>
-
 														<div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 																Package Setup
