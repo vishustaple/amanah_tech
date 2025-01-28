@@ -637,7 +637,7 @@
 													<div class="summary-item"></div>
 												</div>
 												<div class="modifications-section all-modifications-section"></div>
-												<div class="payment-section">
+												<div class="payment-section mb-0">
 													<div class="payment-details">
 														<div>
 															<span class="summary-list-item-label">First Payment</span>
@@ -650,9 +650,13 @@
 															<span
 																class="summary-list-item-price format-price order-subtotal-price"></span>
 														</div>
+														
 													</div>
-													<button class="btn-summary" id="checkout_next" disabled>PROCEED TO
+													<div class="btn_wrapper">
+													<button class="btn-summary custom-btn" id="checkout_next" disabled>PROCEED TO
 														CHECKOUT</button>
+														</div>
+													
 												</div>
 											</div>
 										</div>
