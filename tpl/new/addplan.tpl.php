@@ -142,12 +142,14 @@
 													<div class="billing-section">
 														<div class="billing-period">
 															<label for="billing-period">Billing Period</label>
-															<select id="billing-period" class="form-control">
-																<option value="1">Monthly</option>
-																<option value="3">Quarterly - SAVE 5%</option>
-																<option value="6">Semi-Annually - SAVE 7%</option>
-																<option value="12">Annually - SAVE 10%</option>
-															</select>
+															<div class="custom-select-wrapper">
+																<select id="billing-period" class="form-control custom-select">
+																	<option value="1">Monthly</option>
+																	<option value="3">Quarterly - SAVE 5%</option>
+																	<option value="6">Semi-Annually - SAVE 7%</option>
+																	<option value="12">Annually - SAVE 10%</option>
+																</select>
+															</div>
 														</div>
 														<div class="quantity-section">
 															<label>Quantity</label>

@@ -1239,3 +1239,34 @@ ul#progressbar li.active strong{
 .mod-item span:last-child{
     color: #646464;
 }
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.custom-select {
+    appearance: none; /* Hide default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 35px 10px 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    font-size: 16px;
+}
+
+/* Add custom dropdown icon */
+.custom-select-wrapper::after {
+    content: '\25BC'; /* Unicode for downward arrow */
+    font-size: 14px;
+    color: #333;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevent clicking on the icon */
+}
