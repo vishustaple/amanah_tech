@@ -1263,7 +1263,7 @@ ul#progressbar li.active strong{
 .custom-select-wrapper::after {
     content: '\25BC'; /* Unicode for downward arrow */
     font-size: 14px;
-    color: #333;
+    color: #1C4071;
     position: absolute;
     right: 15px;
     top: 50%;
