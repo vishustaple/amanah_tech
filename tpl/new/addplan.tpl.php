@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Amanah Tech</title>
+	<title>Amanah Tech - Order Form</title>
 	<link rel="stylesheet" type="text/css" href="lib/style1.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -12,12 +12,13 @@
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
 	<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
 		type='text/css'>
-</head>
-<script>
-	var priceModelJSON = "<?= addslashes($this->priceJSON) ?>",
-		priceObject = JSON.parse(priceModelJSON);
-</script>
-
+		<link rel="icon" type="image/png" href="img/android-chrome-192x192.png">
+		</head>
+		<script>
+			var priceModelJSON = "<?= addslashes($this->priceJSON) ?>",
+				priceObject = JSON.parse(priceModelJSON);
+		</script>
+		
 <body>
 	<!-- Page Loader -->
 	<div id="loader" class="loader-wrapper" style="display:none;">
@@ -76,7 +77,7 @@
 										<div class="col-lg-9">
 											<div class="card_list">
 
-												<h5 class="card_title d-flex justify-content-between">Hardware Configuration <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
+												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
 												
 												<?php $firstName = 'first_prd_name';
 												$firstPrice = 'first_prd_price';
@@ -163,14 +164,14 @@
 													</div>
 													<div class="summary-section">
 														<h4>Order Summary</h4>
-														<div class="summary-list-item d-none">
+														<div class="summary-list-item ">
 															<span class="summary-list-item-label">
 																Package Price
 															</span>
 															<span
 																class="summary-list-item-price format-price package-price"></span>
 														</div>
-														<div class="summary-list-item d-none">
+														<div class="summary-list-item ">
 															<span class="summary-list-item-label">
 																Package Setup
 															</span>
