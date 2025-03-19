@@ -79,12 +79,17 @@
 
 												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
 												
-												<?php $firstName = 'first_prd_name';
-												$firstPrice = 'first_prd_price';
-
+												<?php 
+												
+												$cycle = false;
 												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo) {
-
-													// echo"<pre>";print_r($groupInfo); ?>
+													if($groupInfo["options"][array_key_first($groupInfo["options"])]["pu_id"] == 3){
+														$cycle =true;
+														$firstName = 'first_prd_name';
+														$firstPrice = 'first_prd_price';
+													}
+												
+													 //echo"<pre>";print_r($groupInfo["options"][($groupInfo["options"])]['po_description']); ?>
 													<div class="items_list">
 														<div class="items_name">
 															<h5><?= $groupInfo["pu_name"] ?></h5>
@@ -95,10 +100,10 @@
 																name="pu<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pu_id"] ?>"
 																id="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>"
 																value="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>" />
-															<h5 class="items_config_title set_prd_name <?= $firstName ?>">
+															<h5 class="items_config_title set_prd_name  <?= $cycle ? $firstName : ''  ?>">
 																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
 															</h5>
-															<h5 class="items_config_title new_price_data price_data set_price_html<?= $firstPrice ?>"
+															<h5 class="items_config_title new_price_data price_data set_price_html <?= $firstPrice ?>"
 																data-optId="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>">
 																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pricing"]["1"]["price"] ?>
 																<i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -164,7 +169,7 @@
 													</div>
 													<div class="summary-section">
 														<h4>Order Summary</h4>
-														<div class="summary-list-item ">
+														<!-- <div class="summary-list-item ">
 															<span class="summary-list-item-label">
 																Package Price
 															</span>
@@ -177,8 +182,15 @@
 															</span>
 															<span
 																class="summary-list-item-price format-price package-setup-price"></span>
-														</div>
+														</div> -->
 														<div class="summary-item"></div>
+														<div class="summary-list-item ">
+															<span class="summary-list-item-label">
+																Package Setup
+															</span>
+															<span
+																class="summary-list-item-price format-price package-setup-price"></span>
+														</div> 
 													</div>
 													<div class="modifications-section first-modifications-section">
 													</div>
