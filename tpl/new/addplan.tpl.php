@@ -12,8 +12,15 @@
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
 	<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
 		type='text/css'>
-		<link rel="icon" type="image/png" href="img/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" href="/img/amanah-data-centers-logo.png">
 		</head>
+		<style>
+			.logo img {
+    max-width: 104px;
+}
+
+
+		</style>
 		<script>
 			var priceModelJSON = "<?= addslashes($this->priceJSON) ?>",
 				priceObject = JSON.parse(priceModelJSON);
@@ -28,7 +35,7 @@
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
 			<div class="logo">
-				<a href="https://www.amanah.com/"><img src="img/amanah-tech-logo-header.png" alt="logo"></a>
+				<a href="https://www.amanah.com/"><img src="/img/amanah-data-centers-logo.png" alt="logo"></a>
 			</div>
 			<div class="d-flex gap-3" style="font-size:13px">
             <p class="mb-0" style="color:#858585;text-transform:uppercase;">Speak To An Expert :<b> +1(416) 603-9825</b></p>
