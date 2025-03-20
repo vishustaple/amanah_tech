@@ -19,9 +19,9 @@
 				priceObject = JSON.parse(priceModelJSON);
 		</script>
 		<style>
-			.logo img{
+			/* .logo img{
 				max-width: 120px;
-			}
+			} */
 		</style>
 <body>
 	<!-- Page Loader -->
@@ -32,7 +32,7 @@
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
 			<div class="logo">
-				<a href="https://www.amanah.com/"><img src="img/amanah-data-centers-logo.png" alt="logo"></a>
+				<a href="https://www.amanah.com/"><img src="img/amanah-tech-logo-header.png" alt="logo"></a>
 			</div>
 			<div class="d-flex gap-3" style="font-size:13px">
             <p class="mb-0" style="color:#858585;text-transform:uppercase;">Speak To An Expert :<b> +1(416) 603-9825</b></p>
@@ -80,7 +80,7 @@
 									<div class="row">
 										<div class="col-lg-9">
 											<div class="card_list">
-												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
+												<h5 class="card_title d-flex justify-content-between">Colocation Services<span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
 												<?php 
 												$cycle = false;
 												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo) {
@@ -184,13 +184,13 @@
 															<span
 																class="summary-list-item-price format-price package-setup-price"></span>
 														</div> -->
-														<div class="summary-item"></div>
+														<div class="summary-item "></div>
 														<div class="summary-list-item ">
 															<span class="summary-list-item-label">
 																Package Setup
 															</span>
 															<span
-																class="summary-list-item-price format-price package-setup-price"></span>
+																class="summary-list-item-price format-price package-setup-price summary-list-item-label"></span>
 														</div> 
 													</div>
 													<div class="modifications-section first-modifications-section">
