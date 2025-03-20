@@ -80,11 +80,8 @@
 									<div class="row">
 										<div class="col-lg-9">
 											<div class="card_list">
-
 												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
-												
 												<?php 
-												
 												$cycle = false;
 												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo) {
 													if($groupInfo["options"][array_key_first($groupInfo["options"])]["pu_id"] == 3){
