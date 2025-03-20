@@ -285,6 +285,7 @@ h5.items_config_title {
     width: 20%;
     background-color: #f9f9f9;
     padding: 10px;
+    border-right: 1px solid #ccc;
 }
 .items_config{
 	width: 80%;
@@ -1230,10 +1231,10 @@ ul#progressbar li strong{
 ul#progressbar li.active strong{
     color: #1c4071;
 }
-.summary-item span:first-child,
+/* .summary-item span:first-child,
 .mod-item span:first-child{
     color: #ACACAC;
-}
+} */
 
 .summary-item span:last-child,
 .mod-item span:last-child{
