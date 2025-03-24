@@ -170,24 +170,24 @@
 													</div>
 													<div class="summary-section">
 														<h4>Order Summary</h4>
-														<!-- <div class="summary-list-item ">
+													 <div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 																Package Price
 															</span>
 															<span
 																class="summary-list-item-price format-price package-price"></span>
 														</div>
-														<div class="summary-list-item ">
+														<div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 																Package Setup
 															</span>
 															<span
 																class="summary-list-item-price format-price package-setup-price"></span>
-														</div> -->
+														</div> 
 														<div class="summary-item "></div>
 														<div class="summary-list-item ">
 															<span class="summary-list-item-label">
-																Package Setup
+															   Setup Fee
 															</span>
 															<span
 																class="summary-list-item-price format-price package-setup-price summary-list-item-label"></span>
