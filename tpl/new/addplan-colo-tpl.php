@@ -12,13 +12,17 @@
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
 	<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
 		type='text/css'>
-		<link rel="icon" type="image/png" href="img/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" href="img/amanah-data-centers-logo.png">
 		</head>
 		<script>
 			var priceModelJSON = "<?= addslashes($this->priceJSON) ?>",
 				priceObject = JSON.parse(priceModelJSON);
 		</script>
-		
+		<style>
+			/* .logo img{
+				max-width: 120px;
+			} */
+		</style>
 <body>
 	<!-- Page Loader -->
 	<div id="loader" class="loader-wrapper" style="display:none;">
@@ -76,18 +80,20 @@
 									<div class="row">
 										<div class="col-lg-9">
 											<div class="card_list">
-
-												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
-												
-												<?php $firstName = 'first_prd_name';
-												$firstPrice = 'first_prd_price';
-
+												<h5 class="card_title d-flex justify-content-between">Colocation Services<span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
+												<?php 
+												$cycle = false;
 												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo) {
-
-													// echo"<pre>";print_r($groupInfo); ?>
+													if($groupInfo["options"][array_key_first($groupInfo["options"])]["pu_id"] == 49){
+														$cycle =true;
+														$firstName = 'first_prd_name';
+														$firstPrice = 'first_prd_price';
+													}
+												
+													 //echo"<pre>";print_r($groupInfo["options"][($groupInfo["options"])]['po_description']); ?>
 													<div class="items_list">
-														<div class="items_name">
-															<h5><?= $groupInfo["pu_name"] ?></h5>
+														<div class="items_name dsdsdsd">
+															<h5><?= $groupInfo["pu_name"] ?> </h5>
 														</div>
 														<div
 															class="items_config get_all_prd_info set_hard_<?= array_key_first($groupInfo["options"]) ?>">
@@ -95,12 +101,12 @@
 																name="pu<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pu_id"] ?>"
 																id="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>"
 																value="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>" />
-															<h5 class="items_config_title set_prd_name <?= $firstName ?>">
+															<h5 class="items_config_title set_prd_name  <?= $cycle ? $firstName : ''  ?>">
 																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
 															</h5>
-															<h5 class="items_config_title new_price_data price_data set_price_html<?= $firstPrice ?>"
+															<h5 class="items_config_title new_price_data price_data set_price_html <?= $firstPrice ?>"
 																data-optId="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>">
-																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pricing"]["1"]["price"] ?>
+																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pricing"]["1"]["price"] == 0 ? '' :$groupInfo["options"][array_key_first($groupInfo["options"])]["pricing"]["1"]["price"] ?>
 																<i class="fa fa-caret-down" aria-hidden="true"></i>
 															</h5>
 														</div>
@@ -164,21 +170,28 @@
 													</div>
 													<div class="summary-section">
 														<h4>Order Summary</h4>
-														<div class="summary-list-item ">
+													 <div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 																Package Price
 															</span>
 															<span
 																class="summary-list-item-price format-price package-price"></span>
 														</div>
-														<div class="summary-list-item ">
+														<div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 																Package Setup
 															</span>
 															<span
 																class="summary-list-item-price format-price package-setup-price"></span>
-														</div>
-														<div class="summary-item"></div>
+														</div> 
+														<div class="summary-item "></div>
+														<div class="summary-list-item ">
+															<span class="summary-list-item-label">
+															   Setup Fee
+															</span>
+															<span
+																class="summary-list-item-price format-price package-setup-price summary-list-item-label"></span>
+														</div> 
 													</div>
 													<div class="modifications-section first-modifications-section">
 													</div>
@@ -1804,7 +1817,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/script1.js"></script>
+	<script src="lib/script2.js"></script>
 </body>
 
 </html>

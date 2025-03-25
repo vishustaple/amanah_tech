@@ -79,69 +79,86 @@
 								<div class="form-card">
 									<div class="row">
 										<div class="col-lg-9">
-											<div class="card_list">
-												<h5 class="card_title d-flex justify-content-between">Colocation Services<span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
-												<?php 
-												$cycle = false;
-												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo) {
-													if($groupInfo["options"][array_key_first($groupInfo["options"])]["pu_id"] == 3){
-														$cycle =true;
-														$firstName = 'first_prd_name';
-														$firstPrice = 'first_prd_price';
-													}
-												
-													 //echo"<pre>";print_r($groupInfo["options"][($groupInfo["options"])]['po_description']); ?>
+										<div class="card_list">
+												<h5 class="card_title d-flex justify-content-between">
+													Colocation Services
+													<span class="m-0 pe-3" id="refresh_product_options" style="cursor:pointer">RESET</span>
+												</h5>
+
+												<?php
+												$firstName = 'first_prd_name';
+												$firstPrice = 'first_prd_price';
+												$loopIndex = 0;
+
+												foreach ($this->servicePlanData["upgrades"] as $groupID => $groupInfo):
+													$options = $groupInfo["options"];
+													$firstOptionKey = array_key_first($options);
+													$firstOption = $options[$firstOptionKey];
+													$isSecondLoop = ($loopIndex === 1);
+												?>
 													<div class="items_list">
 														<div class="items_name">
-															<h5><?= $groupInfo["pu_name"] ?></h5>
-														</div>
-														<div
-															class="items_config get_all_prd_info set_hard_<?= array_key_first($groupInfo["options"]) ?>">
-															<input type="hidden" class="set_val_selected_prd"
-																name="pu<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pu_id"] ?>"
-																id="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>"
-																value="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>" />
-															<h5 class="items_config_title set_prd_name  <?= $cycle ? $firstName : ''  ?>">
-																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]['po_description'] ?>
+															<h5>
+																<?= $groupInfo["pu_name"] ?>
 															</h5>
-															<h5 class="items_config_title new_price_data price_data set_price_html <?= $firstPrice ?>"
-																data-optId="<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["po_id"] ?>">
-																<?= $groupInfo["options"][array_key_first($groupInfo["options"])]["pricing"]["1"]["price"] == 0 ? '' :$groupInfo["options"][array_key_first($groupInfo["options"])]["pricing"]["1"]["price"] ?>
+														</div>
+
+														<div class="items_config get_all_prd_info set_hard_<?= $firstOptionKey ?>">
+															<input type="hidden" class="set_val_selected_prd"
+																name="pu<?= $firstOption["pu_id"] ?>"
+																id="<?= $firstOption["po_id"] ?>"
+																value="<?= $firstOption["po_id"] ?>" />
+
+															<h5 class="items_config_title set_prd_name <?= $isSecondLoop ? 'first_prd_name' : '' ?>">
+																<?= $firstOption['po_description'] ?>
+															</h5>
+
+															<h5 class="items_config_title new_price_data price_data set_price_html <?= $isSecondLoop ? 'first_prd_price' : '' ?>"
+																data-optId="<?= $firstOption["po_id"] ?>">
+																<?= $firstOption["pricing"]["1"]["price"] == 0 ? '' : $firstOption["pricing"]["1"]["price"] ?>
 																<i class="fa fa-caret-down" aria-hidden="true"></i>
 															</h5>
 														</div>
+
 														<div class="dropdown_data hidden">
 															<ul>
-																<?php $firstName = $firstPrice = '';
-																$spogId = -1; ?>
-																<?php $isFirstLoop = true; ?>
-																<?php $isFirstItem = true; ?>
-																<?php foreach ($groupInfo["options"] as $optionID => $optionInfo) { ?>
-																	<li class="get_hard <?php if ($isFirstItem): ?>selected<?php $isFirstItem = false; ?><?php endif; ?>"
-																		data-class_id="<?= array_key_first($groupInfo["options"]) ?>"
+																<?php
+																$firstName = $firstPrice = '';
+																$isFirstItem = true;
+
+																foreach ($options as $optionID => $optionInfo):
+																?>
+																	<li class="get_hard <?= $isFirstItem ? 'selected' : '' ?>"
+																		data-class_id="<?= $firstOptionKey ?>"
 																		data-name="pu<?= $optionInfo["pu_id"] ?>"
 																		data-id="<?= $optionInfo["po_id"] ?>"
 																		data-value="<?= $optionInfo["po_id"] ?>">
 																		<div class="items_config">
 																			<h5 class="items_config_title get_prd_name">
-																				
 																				<?= $optionInfo['po_description'] ?>
+																			
 																			</h5>
+
 																			<h5 class="items_config_title price_data get_price_html"
 																				data-optId="<?= $optionInfo["po_id"] ?>">
 																				<?= $optionInfo["pricing"][1]["price"] ?>
-																				<i class="fa fa-caret-down"
-																					aria-hidden="true"></i>
+																				<i class="fa fa-caret-down" aria-hidden="true"></i>
 																			</h5>
 																		</div>
 																	</li>
-																<?php } ?>
+																<?php
+																	$isFirstItem = false;
+																endforeach;
+																?>
 															</ul>
 														</div>
 													</div>
-												<?php } ?>
-
+												<?php
+													$loopIndex++;
+												endforeach;
+												?>
 											</div>
+
 										</div>
 										<div class="col-lg-3">
 											<div class="side_panel">
