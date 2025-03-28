@@ -334,8 +334,8 @@ h5.items_config_title {
     border: 1px solid #ddd;
     padding: 20px 0px 0px;
     background: #fff;
-    font-size: 14px;
-    color: #333;
+    font-size: 13px;
+    color: #858585;
 }
 .coupen_code input[type="text"] {
     border-radius: 0px !important;
@@ -441,7 +441,8 @@ h4 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    font-size: 12px;
+    font-size: 13px;
+    color: #858585;
 }
 
 .payment-section .payment-details {
