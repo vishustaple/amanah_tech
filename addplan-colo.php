@@ -69,4 +69,4 @@ $tpl->form=$form;
 $tpl->priceJSON=$priceJSON;
 $tpl->servicePlanData = $result;
 $tpl->title = $result["title"];
-$tpl->display('tpl/' . $_TEMPLATE . '/addplan.tpl.php');   
+$tpl->display('tpl/' . $_TEMPLATE . '/addplan-colo-tpl.php');   

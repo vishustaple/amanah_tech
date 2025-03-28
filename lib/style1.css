@@ -1238,7 +1238,9 @@ ul#progressbar li.active strong{
 
 .summary-item span:last-child,
 .mod-item span:last-child{
-    color: #646464;
+    color: #858585;
+    font-size: 13px;
+
 }
 .custom-select-wrapper {
     position: relative;
