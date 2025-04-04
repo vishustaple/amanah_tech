@@ -77,7 +77,8 @@
 										<div class="col-lg-9">
 											<div class="card_list">
 
-												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3" id="refresh_product_options" style="cursor:pointer;color:#DA6F1A;font-weight:bold">RESET</span>
+												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
+												
 												<?php 
 												
 												$cycle = false;
