@@ -355,6 +355,11 @@ h5.items_config_title {
     padding-left: 10px;
     padding-right: 10px;
 }
+.summary-section-add{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+}
 .billing-period label, .quantity-section label {
     display: block;
     margin-bottom: 5px;
@@ -437,7 +442,7 @@ h4 {
     font-weight: bold;
 }
 
-.summary-item, .mod-item {
+.summary-item, .setup-item-option,.mod-item {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -470,6 +475,11 @@ span.summary-list-item-price.format-price.order-subtotal-price, span.summary-lis
 span.summary-list-item-label {
     color: #858585;
     font-size: 13px;
+}
+span.summary-list-item-label-new {
+    color: #000;
+    font-size: 13px;
+font-weight: bold;
 }
 .payment-details span:first-child {
     font-weight: 600;
@@ -1237,7 +1247,7 @@ ul#progressbar li.active strong{
     color: #ACACAC;
 } */
 
-.summary-item span:last-child,
+.summary-item span:last-child,.setup-item-option,
 .mod-item span:last-child{
     color: #858585;
     font-size: 13px;
