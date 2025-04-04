@@ -82,7 +82,7 @@
 										<div class="card_list">
 												<h5 class="card_title d-flex justify-content-between">
 													Colocation Services
-													<span class="m-0 pe-3" id="refresh_product_options" style="cursor:pointer">RESET</span>
+													<span class="m-0 pe-3" id="refresh_product_options" style="cursor:pointer;color:#DA6F1A;font-weight:bold">RESET</span>
 												</h5>
 
 												<?php
@@ -113,11 +113,20 @@
 																<?= $firstOption['po_description'] ?>
 															</h5>
 
-															<h5 class="items_config_title new_price_data price_data set_price_html <?= $isSecondLoop ? 'first_prd_price' : '' ?>"
-																data-optId="<?= $firstOption["po_id"] ?>">
-																<?= $firstOption["pricing"]["1"]["price"] == 0 ? '' : $firstOption["pricing"]["1"]["price"] ?>
-																<i class="fa fa-caret-down" aria-hidden="true"></i>
-															</h5>
+															<?php
+$poId = htmlspecialchars($firstOption["po_id"]);
+$price = $firstOption["pricing"]["1"]["price"];
+$priceAttr = $isSecondLoop ? 'data-price="' . htmlspecialchars($price) . '"' : '';
+$additionalClass = $isSecondLoop ? 'first_prd_price' : '';
+$displayPrice = $price == 0 ? '' : htmlspecialchars($price);
+?>
+
+<h5 class="items_config_title new_price_data price_data set_price_html <?= $additionalClass ?>"
+     data-optId="<?= $poId ?>" <?= $priceAttr ?>>
+    <?= $displayPrice ?>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+</h5>
+
 														</div>
 
 														<div class="dropdown_data hidden">
@@ -202,7 +211,7 @@
 																class="summary-list-item-price format-price package-setup-price"></span>
 														</div> 
 														<div class="summary-item "></div>
-														<div class="summary-list-item ">
+														<div class="summary-list-item d-none">
 															<span class="summary-list-item-label">
 															   Setup Fee
 															</span>
@@ -211,6 +220,15 @@
 														</div> 
 													</div>
 													<div class="modifications-section first-modifications-section">
+													</div>
+													<div class="summary-section-add">
+													<div class="summary-list-item">
+															<span class="summary-list-item-label-new">
+															   Setup Fee
+															</span>
+															<span
+																class="summary-list-item-price format-price package-setup-price summary-list-item-label-new"></span>
+														</div> 
 													</div>
 													<div class="payment-section">
 														<div class="payment-details">
@@ -252,7 +270,7 @@
 											<div class="d-flex justify-content-between align-items-center">
 												<h5 class="card_title">Order Summary</h5>
 												<p class="m-0 pe-3"><a href="javascript:void(0);" id="checkout_pre_one"
-														class="text-light text-uppercase">Reconfigure</a></p>
+														class=" text-uppercase" style="cursor:pointer;color:#DA6F1A;font-weight:bold" >Reconfigure</a></p>
 											</div>
 										</div>
 										<div class="card_list order_hide_title order_summary_title"></div>
@@ -288,6 +306,7 @@
 												<div class="summary-section">
 													<h4>Order Summary</h4>
 													<div class="summary-item"></div>
+													<div class="setup-item-option"></div>
 												</div>
 												<div class="modifications-section all-modifications-section"></div>
 												<div class="payment-section">
@@ -329,7 +348,7 @@
 												<div class="d-flex justify-content-between align-items-center">
 													<h5 class="card_title">Terms and Policies</h5>
 													<p class="m-0 pe-3 "><a href="javascript:void(0);" id="checkout_pre"
-															class="text-white">Back to summary</a></p>
+															style="cursor:pointer;color:#DA6F1A;font-weight:bold">Back to summary</a></p>
 												</div>
 											</div>
 
