@@ -77,7 +77,7 @@
 										<div class="col-lg-9">
 											<div class="card_list">
 
-												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer">RESET</span></h5>
+												<h5 class="card_title d-flex justify-content-between">Configuration	 <span class="m-0 pe-3 " id="refresh_product_options" style="cursor:pointer;color:#DA6F1A;font-weight:bold" >RESET</span></h5>
 												
 												<?php 
 												
@@ -232,7 +232,7 @@
 											<div class="d-flex justify-content-between align-items-center">
 												<h5 class="card_title">Order Summary</h5>
 												<p class="m-0 pe-3"><a href="javascript:void(0);" id="checkout_pre_one"
-														class="text-light text-uppercase">Reconfigure</a></p>
+														class=" text-uppercase" style="cursor:pointer;color:#DA6F1A;font-weight:bold" >Reconfigure</a></p>
 											</div>
 										</div>
 										<div class="card_list order_hide_title order_summary_title"></div>
@@ -309,7 +309,7 @@
 												<div class="d-flex justify-content-between align-items-center">
 													<h5 class="card_title">Terms and Policies</h5>
 													<p class="m-0 pe-3 "><a href="javascript:void(0);" id="checkout_pre"
-															class="text-white">Back to summary</a></p>
+															class="" style="cursor:pointer;color:#DA6F1A;font-weight:bold" >Back to summary</a></p>
 												</div>
 											</div>
 

@@ -114,18 +114,18 @@
 															</h5>
 
 															<?php
-															$poId = htmlspecialchars($firstOption["po_id"]);
-															$price = $firstOption["pricing"]["1"]["price"];
-															$priceAttr = $isSecondLoop ? 'data-price="' . htmlspecialchars($price) . '"' : '';
-															$additionalClass = $isSecondLoop ? 'first_prd_price' : '';
-															$displayPrice = $price == 0 ? '' : htmlspecialchars($price);
-															?>
+$poId = htmlspecialchars($firstOption["po_id"]);
+$price = $firstOption["pricing"]["1"]["price"];
+$priceAttr = $isSecondLoop ? 'data-price="' . htmlspecialchars($price) . '"' : '';
+$additionalClass = $isSecondLoop ? 'first_prd_price' : '';
+$displayPrice = $price == 0 ? '' : htmlspecialchars($price);
+?>
 
-															<h5 class="items_config_title new_price_data price_data set_price_html <?= $additionalClass ?>"
-																data-optId="<?= $poId ?>" <?= $priceAttr ?>>
-																<?= $displayPrice ?>
-																<i class="fa fa-caret-down" aria-hidden="true"></i>
-															</h5>
+<h5 class="items_config_title new_price_data price_data set_price_html <?= $additionalClass ?>"
+     data-optId="<?= $poId ?>" <?= $priceAttr ?>>
+    <?= $displayPrice ?>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+</h5>
 
 														</div>
 
