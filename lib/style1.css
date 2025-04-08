@@ -1015,6 +1015,14 @@ input#signatureInput {
     max-height: 500px;
     overflow-y: auto;
 }
+.add-plan-new .progress1 {
+    width: 100%;
+    border-radius: 5px !important;
+}
+
+.add-plan-new {
+    border-radius: 5px !important;
+}
 .terms_card p a {
     /* color: #deffbe !important; */
     font-size: 14px;
