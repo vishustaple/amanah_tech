@@ -66,4 +66,7 @@ echo $footerHTML;
 .et-waypoint:not(.et_pb_counters){
     opacity: 1;
 }
+footer{
+    padding: 0 !important;
+}
 </style>
