@@ -47,7 +47,7 @@ foreach($elements as $element) {
                 }
             }
             echo $dom->saveHTML($element);
-            break;
+            break;      
         }else {
             $element->removeChild($child);
         }
