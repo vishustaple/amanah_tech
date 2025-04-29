@@ -1,8 +1,7 @@
 <?php
 // createPdf.php
-
 if (!isset($_FILES['pdf'])) {
-    echo json_encode(["success" => false, "message" => "No file uploaded."]);
+    echo json_encode(["success" => false, "message" => "No file uploaded.",'file' => $_FILES['pdf']]);
     exit;
 }
 
