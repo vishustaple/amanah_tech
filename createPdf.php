@@ -1,8 +1,7 @@
 <?php
  if (isset($_FILES['pdf'])) {
      $pdf = $_FILES['pdf'];
-     echo "<pre>";
-     print_r($pdf);
+   
      // Define the target directory and file name
      $targetDir = "uploads/";  // Change this to your desired directory
      $targetFile = $targetDir . time() . basename($pdf['name']);  // Use the original filename
