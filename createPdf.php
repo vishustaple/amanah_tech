@@ -10,20 +10,20 @@ if (isset($_FILES['pdf'])) {
             echo json_encode([
                 'success' => true,
                 'message' => 'PDF saved successfully!',
-                'type' =>mime_content_type($pdf['tmp_name']),
+                'type' =>$targetFile,
                 'filePaths' => $targetFile
             ]);
         } else {
             echo json_encode([
                 'success' => false,
-                'type' =>mime_content_type($pdf['tmp_name']),
+                'type' =>$targetFile,
                 'message' => 'Failed to save PDF on the server.'
             ]);
         }
     } else {
         echo json_encode([
             'success' => false,
-            'type' =>mime_content_type($pdf['tmp_name']),
+            'type' =>$targetFile,
             'message' => 'Invalid file type. Only PDF files are allowed.'
         ]);
     }
