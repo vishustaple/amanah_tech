@@ -13,7 +13,7 @@ if (isset($_FILES['pdf'])) {
             echo json_encode(['success' => false, 'message' => 'Failed to save PDF on the server.','file' =>$pdf]);
         }
     } else {
-        echo json_encode(['success' => false, 'message' => 'Invalid file type. Only PDF files are allowed','file' =>$pdf]);
+        echo json_encode(['success' => false, 'message' => 'Invalid file type. Only PDF files are allowed','file' =>$pdf['type']]);
     }
 } else {
     echo json_encode(['success' => false, 'message' => 'No file uploaded.','file' =>$pdf]);
