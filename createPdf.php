@@ -5,7 +5,6 @@ if (isset($_FILES['pdf'])) {
     $targetDir = "uploads/";  // Change this to your desired directory
     $targetFile = $targetDir . time() . basename($pdf['name']);  // Use the original filename
     // Check if the file is a valid PDF
-    echo json_encode(['file' =>$pdf]);
     if ($pdf['type'] == 'application/pdf') {
         // Move the uploaded file to the target directory
         if (move_uploaded_file($pdf['tmp_name'], $targetFile)) {
