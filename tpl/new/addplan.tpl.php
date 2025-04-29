@@ -409,7 +409,7 @@
 														<div class="signature1"></div>
 													</div>
 
-													<div class="wrap_2" id="policy_contant2" data-wrap="2">
+													<div class="wrap2" id="policy_contant2" data-wrap="2">
 
 														<h2 class="tac text-center">Acceptable Use Policy</h2>
 														<p>For the purposes of this Acceptable Use Policy (the “AUP”),
