@@ -321,7 +321,7 @@
 											</div>
 											<div class="privacy_policy">
 												<section class="legal px-3 py-4">
-													<div class="wrap1" id="policy_contant1" data-wrap="1">
+													<div class="wrap_1" id="policy_contant_1" data-wrap="1">
 														<h2 class="tac text-center">Service Level Agreement</h2>
 														<p>This Service Level Agreement (SLA) is a part of any service
 															agreement between the Customer and Amanah Tech Inc.
@@ -409,7 +409,7 @@
 														<div class="signature1"></div>
 													</div>
 
-													<div class="wrap2" id="policy_contant2" data-wrap="2">
+													<div class="wrap_2" id="policy_contant_2" data-wrap="2">
 
 														<h2 class="tac text-center">Acceptable Use Policy</h2>
 														<p>For the purposes of this Acceptable Use Policy (the “AUP”),
