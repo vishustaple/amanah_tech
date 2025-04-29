@@ -6,7 +6,7 @@ if (!isset($_FILES['pdf'])) {
 }
 
 $file = $_FILES['pdf'];
-
+print_r($file);
 // Check for upload errors
 if ($file['error'] !== UPLOAD_ERR_OK) {
     echo json_encode(["success" => false, "message" => "File upload failed with error code: " . $file['error']]);
