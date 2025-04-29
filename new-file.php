@@ -47,7 +47,7 @@ foreach($elements as $element) {
                 }
             }
             echo $dom->saveHTML($element);
-            break;
+            break;      
         }else {
             $element->removeChild($child);
         }
@@ -65,5 +65,8 @@ echo $footerHTML;
 .elementor-6722{margin-top:115px;}
 .et-waypoint:not(.et_pb_counters){
     opacity: 1;
+}
+footer{
+    padding: 0 !important;
 }
 </style>
