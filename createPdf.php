@@ -5,8 +5,7 @@
      // Define the target directory and file name
      $targetDir = "uploads/";  // Change this to your desired directory
      $targetFile = $targetDir . time() . basename($pdf['name']);  // Use the original filename
-     echo"<pre>";
-        print_r($pdf);
+   
      // Check if the file is a valid PDF
      if ($pdf['type'] == 'application/pdf') {
          // Move the uploaded file to the target directory
