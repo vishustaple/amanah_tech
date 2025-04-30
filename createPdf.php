@@ -1,22 +1,35 @@
 <?php
- if (isset($_FILES['pdf'])) {
-     $pdf = $_FILES['pdf'];
-   
-     // Define the target directory and file name
-     $targetDir = "uploads/";  // Change this to your desired directory
-     $targetFile = $targetDir . time() . basename($pdf['name']);  // Use the original filename
-   
-     // Check if the file is a valid PDF
-     if ($pdf['type'] == 'application/pdf') {
-         // Move the uploaded file to the target directory
-         if (move_uploaded_file($pdf['tmp_name'], $targetFile)) {
-             echo json_encode(['success' => true, 'message' => 'PDF saved successfully!','filePaths' => $targetFile,'file' =>$pdf]);
-         } else {
-             echo json_encode(['success' => false, 'message' => 'Failed to save PDF on the server.','file' =>$pdf]);
-         }
-     } else {
-         echo json_encode(['success' => false, 'message' => 'Invalid file type. Only PDF files are allowed','file' =>$pdf]);
-     }
- } else {
-     echo json_encode(['success' => false, 'message' => 'No file uploaded.','file' =>$pdf]);
- }
+if (isset($_FILES['pdf'])) {
+    $pdf = $_FILES['pdf'];
+
+    if ($pdf['error'] !== UPLOAD_ERR_OK) {
+        echo json_encode(['success' => false, 'message' => 'Upload error code: ' . $pdf['error'], 'file' => $pdf]);
+        exit;
+    }
+
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime = finfo_file($finfo, $pdf['tmp_name']);
+    finfo_close($finfo);
+
+    if ($mime !== 'application/pdf') {
+        echo json_encode(['success' => false, 'message' => 'Invalid file type. Only PDF files are allowed', 'mime' => $mime, 'file' => $pdf]);
+        exit;
+    }
+
+    $targetDir = "uploads/";
+    $targetFile = $targetDir . time() . basename($pdf['name']);
+
+    if (move_uploaded_file($pdf['tmp_name'], $targetFile)) {
+        echo json_encode([
+            'success' => true,
+            'message' => 'PDF saved successfully!',
+            'filePaths' => $targetFile,
+            'file' => $pdf
+        ]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Failed to save PDF on the server.', 'file' => $pdf]);
+    }
+} else {
+    echo json_encode(['success' => false, 'message' => 'No file uploaded.']);
+}
+?>
