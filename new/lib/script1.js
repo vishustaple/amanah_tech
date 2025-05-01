@@ -127,12 +127,23 @@ function formatCurrencyCustom(value) {
 // Order Total count and price data appendations
 function orderSummeryData(value) {
   const textQuantityTotal = "Quantity";
+  const setUpcostText = "Setup Cost";
   const OrderTotaltext = "ORDER TOTAL";
-  // const PackegeCostText = "Package Cost";
-  const PackegeCostText = "Setup Fee";
+  const PackegeCostText = "Package Cost";
   const packegesCost = $(".package-setup-price:first").text();
+  const setupcost = $(".package-price:first").text();
   // Get the text content from .total-price and .order-subtotal-price
   const setUpcost = $(".total-price:first").text();
+  const totalPriceText = $(".order-subtotal-price:first").text();
+  // Clean the strings to remove any non-numeric characters (like '$' or ',')
+  const cleanSetUpCost = parseFloat(setUpcost.replace(/[^\d.-]/g, ""));
+  const cleanTotalPriceText = parseFloat(
+    totalPriceText.replace(/[^\d.-]/g, "")
+  );
+  const finalPackegesCost = parseFloat(packegesCost.replace(/[^\d.-]/g, ""));
+  const finalpackegdataCost = parseFloat(setupcost.replace(/[^\d.-]/g, ""));
+  const setupPrice = cleanSetUpCost;
+  const orderTotal = cleanTotalPriceText;
   const newOrderCountData = `
 			<div class="items_list">
 				<div class="items_name">
@@ -140,7 +151,9 @@ function orderSummeryData(value) {
 				</div>
 				<div class="items_config">
 					<h5 class="items_config_title "></h5>
-					<h5 class="items_config_title" data-OrderCount="">${packegesCost} </h5>
+					<h5 class="items_config_title" data-OrderCount="">${formatCurrencyCustom(
+            finalpackegdataCost
+          )} </h5>
 				</div>
 			</div>
 			<div class="items_list">
@@ -160,19 +173,11 @@ function orderSummeryData(value) {
 				<div class="items_config">
 					<h5 class="items_config_title"></h5>
 					<h5 class="items_config_title" data-OrderCount="" style="color: white;">
-						${setUpcost} 
+						${formatCurrencyCustom(cleanTotalPriceText)} 
 					</h5>
 				</div>
 			</div>
 		`;
-  const setTitle = $(".setup-item-option"),
-    titleHtml = `<span class="summary-list-item-label">Setup Fee</span><span class="summary-list-item-price" data-optIdLeftBar="">$${numeral(
-      packegesCost
-    ).format("0,0.00")}</span>
-    
-    `;
-  setTitle.empty(); // Clear any existing content
-  setTitle.html(titleHtml);
   $(".order_summary_data").html(newOrderCountData);
 }
 
@@ -213,14 +218,12 @@ function updatePrices() {
   console.log("price", priceObject);
   var subTotal = 0;
   subTotal += parseFloat(priceObject.packRec);
-  var setupPrice = 0;
 
   //Go through each radio, see if its an option, if so add it to the subtotal
   $(".get_all_prd_info").each(function () {
     const selectedOptId = $(this).find(".set_val_selected_prd").attr("id"); // e.g., "Id"
     if (selectedOptId != null) {
       subTotal += parseFloat(priceObject.upgrades[selectedOptId].price);
-      setupPrice += parseFloat(priceObject.upgrades[selectedOptId].setup);
     }
   });
   $.each(priceObject.upgrades, function (upgradeId, upgrade) {
@@ -238,23 +241,6 @@ function updatePrices() {
           '<i class="fa fa-caret-down" aria-hidden="true"></i>'
       );
     });
-    // elementOptId.each(function () {
-    //   var price = parseFloat(upgrade.price); // Convert price to a number
-    //   if (price === 0) {
-    //     $(this)
-    //       .contents()
-    //       .filter(function () {
-    //         return this.nodeType === 3; // Target only text nodes (price text)
-    //       })
-    //       .remove();
-    //   } else {
-    //     $(this).html(
-    //       "$" +
-    //         numeral(price).format("0,0.00") +
-    //         ' <i class="fa fa-caret-down" aria-hidden="true"></i>'
-    //     );
-    //   }
-    // });
 
     elementOptIdLeftBar.each(function () {
       // Log each element with the specified data-optIdLeftBar
@@ -274,14 +260,16 @@ function updatePrices() {
   });
   //Overall order prices
   var quantity = parseInt(priceObject.quantity),
-    total = parseFloat(subTotal) * quantity + parseFloat(setupPrice) * quantity,
+    total =
+      parseFloat(subTotal) * quantity +
+      parseFloat(priceObject.packSetup) * quantity,
     packTotal = parseFloat(priceObject.packRec) * quantity,
     packSetupTotal = parseFloat(priceObject.packSetup),
     orderSetupTotal = packSetupTotal * quantity,
     orderSubtotal = subTotal * quantity;
   $(".subtotal-price").html(subTotal.toString());
   $(".total-price").html(total.toString());
-  $(".package-setup-price").html(setupPrice.toString());
+  $(".package-setup-price").html(packSetupTotal.toString());
   $(".order-setup-price").html(orderSetupTotal.toString());
   $(".order-subtotal-price").html(orderSubtotal.toString());
   $(".package-price").html(priceObject.packRec);
@@ -291,6 +279,7 @@ function updatePrices() {
     getPriceText = $(".first_prd_price").text(),
     // Get OptId of 'first_prd_price' class
     dataOptId = $(".first_prd_price").data("optId");
+
   var newPrice = getPriceText.replace("$", ""); // Removes only the first occurrence
   var addedPrice =
     (parseFloat(priceObject.packRec) || 0) + (parseFloat(newPrice) || 0);
@@ -299,12 +288,13 @@ function updatePrices() {
   if (isNaN(addedPrice)) {
     addedPrice = parseFloat(priceObject.packRec) || 0;
   }
-  // Set the set_title span content
+
   const setTitle = $(".summary-item"),
-    titleHtml = `<span class="summary-list-item-label">${getPrdText}</span><span class="summary-list-item-price" data-optIdLeftBar="${dataOptId}">$${numeral(
-      addedPrice
-    ).format("0,0.00")}</span>
-    
+    titleHtml = `
+  <span>${getPrdText}</span>
+  <span data-optIdLeftBar="${dataOptId}">
+    $${numeral(addedPrice).format("0,0.00")}
+  </span>
     `;
   setTitle.empty(); // Clear any existing content
   setTitle.html(titleHtml);
@@ -327,6 +317,11 @@ function updatePrices() {
     }
     orderSummeryData(globalQuantity);
   }
+
+  // Object.entries(priceObject.upgrades).forEach(function(data, index) {
+  // $("#sumopt"+data[0]).children(":nth-child(4)").html(data[1].price + data[1].setup);
+  // $("#sumopt"+data[0]).children(":nth-child(5)").html((data[1].price + data[1].setup) * quantity);
+  // });
 
   //Format all prices
   $(".format-price").each(function () {
@@ -364,14 +359,12 @@ $(document).ready(function () {
       const getPrdText = $(".first_prd_name").text(),
         // Get text content of 'get_price_html' class
         getPriceText = $(".first_prd_price").text();
-      //         var rrrrr = getPriceHtml.replace(/<i[^>]*>.*?<\/i>/g, '');
-      // console.log("updated", rrrrr);
-      //       console.log("gsdh", getPriceHtml);
       // Set the set_title span content
       const setTitle = $(".summary-item"),
         titleHtml = `<span>${getPrdText}</span><span  data-optIdLeftBar="${dataId}">${numeral(
           newPackegesPrice
         ).format("0,0.00")}</span>`;
+
       setTitle.empty(); // Clear any existing content
       setTitle.html(titleHtml);
     }
@@ -382,7 +375,7 @@ $(document).ready(function () {
       '<h5 class="card_title ">Order Summary</h5>'
     );
     // Append heading into the first modification section
-    $(".first-modifications-section").append("<h4>Add-ons</h4>");
+    $(".first-modifications-section").append("<h4>Custom Modifications</h4>");
     const setupcost = $(".package-price:first").text();
     $(".get_all_prd_info").each(function (index) {
       // Stop select first product
@@ -398,25 +391,34 @@ $(document).ready(function () {
           .text(), // e.g., "Some Product Name"
         optId = $(this).find(".set_val_selected_prd").attr("id"); // e.g., "ID"
       if (!firstPrdName) {
+        // // Create the new modification HTML
+        // const newModification = `
+        // 	<div class="mod-item">
+        // 		<span>${getPrdText}</span>
+        // 		<span  data-optIdLeftBar="${optId}">${numeral(getPriceText).format('0,0.00')}</span>
+        // 	</div>
+        // `;
+        // // Append the new modification to the modifications section
+        // $('.first-modifications-section, .all-modifications-section').append(newModification);
       }
       const packegesCost = $(".package-setup-price:first").text();
       // Create the new modification HTML
       const newModification1 = `
-              <div class="items_list">
-                <div class="items_name">
-                  <h5>${index === 0 ? "Base Configuration" : getNameText}</h5>
-                </div>
-                <div class="items_config">
-                  <h5 class="items_config_title ">${getPrdText}</h5>
-                  <h5 class="items_config_title"  >${
-                    index == 0
-                      ? numeral(newPackegesPrice).format("$0,0.00")
-                      : numeral(getPriceText).format("$0,0.00")
-                  }
-                  </h5>
-                </div>
-              </div>
-            `;
+					<div class="items_list">
+						<div class="items_name">
+							<h5>${index === 0 ? "Base Configuration" : getNameText}</h5>
+						</div>
+						<div class="items_config">
+							<h5 class="items_config_title ">${getPrdText}</h5>
+							<h5 class="items_config_title"  >${
+                index == 0
+                  ? numeral(newPackegesPrice).format("$0,0.00")
+                  : numeral(getPriceText).format("$0,0.00")
+              }
+							</h5>
+						</div>
+					</div>
+				`;
 
       // Append the new Order summary to the Order summary section
       $(".order_summary_title").append(newModification1);
@@ -463,7 +465,7 @@ $(document).ready(function () {
     '<h5 class="card_title ">Order Summary</h5>'
   );
   // Append heading into the first modification section
-  $(".first-modifications-section").append("<h4>Add-ons</h4>");
+  $(".first-modifications-section").append("<h4>Custom Modifications</h4>");
 
   // Get text content of 'get_prd_name' class
   const getPrdText = $(".first_prd_name").text(),
@@ -494,7 +496,20 @@ $(document).ready(function () {
         .text(), // e.g., "Some Product Name"
       optId = $(this).find(".set_val_selected_prd").attr("id"); // e.g., "ID"
 
-    if (!firstPrdName) {
+    if (firstPrdName) {
+      //   // Create the new modification HTML
+      //   const newModification = `
+      //  	<div class="mod-item">
+      //  		<span>${getPrdText}</span>
+      //  		<span  data-optIdLeftBar="${optId}">${numeral(getPriceText).format(
+      //     "0,0.00"
+      //   )}</span>
+      //  	</div>
+      //  `;
+      //   // Append the new modification to the modifications section
+      //   $(".first-modifications-section, .all-modifications-section").append(
+      //     newModification
+      //   );
     }
 
     // Create the new modification HTML
@@ -541,7 +556,8 @@ $(document).ready(function () {
         const defaultName = firstOption.data("name");
         const defaultValue = firstOption.data("value");
         const defaultPrdName = firstOption.find(".get_prd_name").html();
-        const defaultPrice = firstOption.find(".get_price_html").text();
+        const defaultPrice = firstOption.find(".get_price_html").html();
+
         // Clean and format price
         const cleanedPrice = numeral(
           defaultPrice.replace(/[^\d.-]/g, "")
@@ -552,14 +568,14 @@ $(document).ready(function () {
         inputField.attr("name", defaultName || "");
         inputField.attr("id", defaultId || "");
         inputField.val(defaultValue || "");
+
         // Update displayed product name and price
         targetDiv.find(".set_prd_name").html(defaultPrdName || "");
-
         targetDiv.find(".set_price_html").replaceWith(`
-				 		<h5 class="items_config_title new_price_data price_data set_price_html" data-optId="${defaultId}">
-				 			${defaultPrice} 
-				 		</h5>
-				 	`);
+						<h5 class="items_config_title new_price_data price_data set_price_html" data-optId="${defaultId}">
+							${defaultPrice} <i class="fa fa-caret-down" aria-hidden="true"></i>
+						</h5>
+					`);
 
         // Add to Order Summary
         $(".order_summary_title").append(`
@@ -584,9 +600,12 @@ $(document).ready(function () {
 
     // Clear custom modifications
     $(".all-modifications-section, .first-modifications-section").empty();
-    $(".first-modifications-section").append("<h4>Add-ons</h4>");
+    $(".first-modifications-section").append("<h4>Custom Modifications</h4>");
 
     // Reset billing period and quantity
+    // $('#billing-period').val('1');
+    // $('#quantity_value').val('1');
+    // Trigger price updates
     updatePrices();
     orderSummeryData(globalQuantity);
     // ajaxUpdateOrderFunc();
@@ -599,7 +618,7 @@ $(document).ready(function () {
     $(".order_summary_title").append(
       '<h5 class="card_title ">Order Summary</h5>'
     ); // Append heading into the first modification section
-    $(".first-modifications-section").append("<h4>Add-ons</h4>");
+    $(".first-modifications-section").append("<h4>Custom Modifications</h4>");
     const getPrdText = $(".first_prd_name").text(),
       getPriceText = $(".first_prd_price").text(),
       dataOptId = $(".first_prd_price").data("optId");
@@ -831,9 +850,8 @@ $(document).ready(function () {
 
   function getCoordinates(e) {
     const rect = canvas.getBoundingClientRect();
-    let x = 0;
-    let y = 0;
-
+    let x = 0,
+      y = 0;
     if (e.touches) {
       x = e.touches[0].clientX;
       y = e.touches[0].clientY;
@@ -841,11 +859,7 @@ $(document).ready(function () {
       x = e.clientX;
       y = e.clientY;
     }
-
-    return {
-      x: x - rect.left,
-      y: y - rect.top,
-    };
+    return { x: x - rect.left, y: y - rect.top };
   }
 
   function startDrawing(e) {
@@ -873,43 +887,48 @@ $(document).ready(function () {
   }
 
   function clearCanvas() {
-    signatureInput.value = "";
+    if (signatureInput.value) {
+      signatureInput.value = "";
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  function isCanvasBlank(canvas) {
-    const pixelBuffer = new Uint32Array(
-      canvas
-        .getContext("2d")
-        .getImageData(0, 0, canvas.width, canvas.height).data.buffer
-    );
-
-    return !pixelBuffer.some((color) => color !== 0);
   }
 
   function saveCanvas(event) {
     $("#signature_error").text("");
     $("#loader").show();
+    saveButton.disabled = true;
 
-    if (isCanvasBlank(canvas)) {
+    const isCanvasBlank = !ctx
+      .getImageData(0, 0, canvas.width, canvas.height)
+      .data.some((channel) => channel !== 0);
+
+    if (isCanvasBlank) {
       $("#loader").hide();
+      saveButton.disabled = false;
       $("#signature_error").text(
         "Please provide a signature before proceeding."
       );
       return;
     }
 
-    const clickedButton = event.target,
-      dataId = clickedButton.getAttribute("data-id"),
-      element = document.getElementById("policy_contant" + dataId),
-      dataURL = canvas.toDataURL("image/png"),
-      options = {
-        margin: [10, 10, 10, 10],
-        filename: "terms-policy.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { dpi: 96, letterRendering: true, scale: 0.8 },
-        jsPDF: { unit: "pt", format: "letter", orientation: "portrait" },
-      };
+    const clickedButton = event.target;
+    const dataId = clickedButton.getAttribute("data-id");
+    const element = document.getElementById("policy_contant" + dataId);
+
+    if (element.offsetParent === null) {
+      $("#loader").hide();
+      saveButton.disabled = false;
+      return;
+    }
+
+    const dataURL = canvas.toDataURL("image/png");
+    const options = {
+      margin: [10, 10, 10, 10],
+      filename: "terms-policy.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { dpi: 144, letterRendering: true, scale: 1 },
+      jsPDF: { unit: "pt", format: "letter", orientation: "portrait" },
+    };
 
     $(".signature" + dataId).html(
       `<img src="${dataURL}" alt="Signature" style="width: 200px; height: auto;" />`
@@ -920,11 +939,22 @@ $(document).ready(function () {
       .set(options)
       .output("blob")
       .then(function (pdfBlob) {
+        if (pdfBlob.size > 10 * 1024 * 1024) {
+          // limit 10MB
+          $("#loader").hide();
+          saveButton.disabled = false;
+          alert("PDF is too large. Please reduce signature or content.");
+          return;
+        }
+
         const formData = new FormData();
+        // formData.append("pdf", pdfBlob, "terms-policy" + dataId + ".pdf");
+
         const file = new File([pdfBlob], "terms-policy.pdf", {
           type: "application/pdf",
         });
         formData.append("pdf", file);
+
         $.ajax({
           url: "createPdf.php",
           type: "POST",
@@ -933,6 +963,8 @@ $(document).ready(function () {
           contentType: false,
           success: function (response) {
             $("#loader").hide();
+            saveButton.disabled = false;
+
             if (typeof response === "string") {
               try {
                 response = JSON.parse(response);
@@ -943,33 +975,52 @@ $(document).ready(function () {
             }
 
             if (response.success) {
-              const filePath = response.filePaths;
+              var filePath = response.filePaths;
               let storedFiles =
                 JSON.parse(localStorage.getItem("filePaths")) || [];
               storedFiles.push(filePath);
               localStorage.setItem("filePaths", JSON.stringify(storedFiles));
 
-              clearCanvas();
-              $(".pdf_signed_count").text(`${dataId} / 1`);
-              $(".pdf_signed_count_two").text(
-                `Signed Documents: ${dataId} / 1`
-              );
-              $("#checkout_next").prop("disabled", false);
-              $("#saveButton").css("display", "none");
-
+              if (dataId == 1) {
+                const newWrapId = parseInt(dataId) + 1;
+                $("#policy_contant" + dataId).hide();
+                $("#policy_contant" + newWrapId).show();
+                $(".pdf_signed_count").text(`${dataId} / 2`);
+                $(".pdf_signed_count_two").text(
+                  `Signed Documents: ${dataId} / 2`
+                );
+                $("#saveButton").attr("data-id", newWrapId);
+              } else {
+                $(".pdf_signed_count").text(`${dataId} / 2`);
+                $(".pdf_signed_count_two").text(
+                  `Signed Documents: ${dataId} / 2`
+                );
+                $("#checkout_next").prop("disabled", false);
+                $("#saveButton").hide();
+              }
               $(".progress_bar").append(
                 `<div class="progress${dataId}"></div>`
               );
+              clearCanvas();
+            } else {
+              console.error(response.message);
             }
           },
-          error: function (error) {
+          error: function (jqXHR, textStatus, errorThrown) {
             $("#loader").hide();
-            console.error("Error saving signature:", error);
+            saveButton.disabled = false;
+            console.error("Upload error: ", textStatus, jqXHR.responseText);
           },
         });
+      })
+      .catch(function (error) {
+        $("#loader").hide();
+        saveButton.disabled = false;
+        console.error("html2pdf error:", error);
       });
   }
 
+  // Event bindings
   canvas.addEventListener("mousedown", startDrawing);
   canvas.addEventListener("mousemove", draw);
   canvas.addEventListener("mouseup", stopDrawing);
@@ -994,7 +1045,6 @@ $(document).ready(function () {
     $("#click_checkout_pre").click();
     clearCanvas();
   });
-
   $("#checkout_pre_one").click(function () {
     $("#click_checkout_pre_one").click();
   });
