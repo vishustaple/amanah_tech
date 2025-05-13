@@ -1,4 +1,4 @@
-
+<script src="https://staging-wp231482.wpdns.ca/wp-content/plugins/header-footer-elementor/inc/js/frontend.js?ver=2.3.0" id="hfe-frontend-js-js"></script>
 <?php
 
 $html = file_get_contents('https://staging-wp231482.wpdns.ca/');
@@ -55,7 +55,24 @@ foreach($elements as $element) {
 }
 include 'addplan-new-colo.php';
 echo $footerHTML;
+$footerPos = strpos($html, '</footer>');
+$afterFooter = substr($html, $footerPos);
+libxml_use_internal_errors(true);
+$dom = new DOMDocument();
+$dom->loadHTML($afterFooter);
+$scripts = $dom->getElementsByTagName('script');
+$footerScripts = '';
+foreach($scripts as $script) {
+    $src = $script->getAttribute('src');
+    if($src) {
+        $footerScripts .= '<script src="' . $src . '"></script>' . PHP_EOL;
+    }else {
+        $footerScripts .= '<script>' . $script->nodeValue . '</script>' . PHP_EOL;
+    }
+}
+echo $footerScripts;
 ?>
+
 <style>
 
 @font-face {
