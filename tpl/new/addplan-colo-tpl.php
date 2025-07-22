@@ -5,7 +5,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Amanah Tech - Order Form</title>
-	<link rel="stylesheet" type="text/css" href="lib/style1.css">
+	
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/lib/style1.css"
+/>	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -32,7 +37,7 @@
 		<div class="container">
 			<div class="d-flex justify-content-between align-items-center">
 			<div class="logo">
-				<a href="https://www.amanah.com/"><img src="img/amanah-tech-logo-header.png" alt="logo"></a>
+				<a href="https://www.amanah.com/"><img src="/img/amanah-tech-logo-header.png" alt="logo"></a>
 			</div>
 			<div class="d-flex gap-3" style="font-size:13px">
             <p class="mb-0" style="color:#858585;text-transform:uppercase;">Speak To An Expert :<b> +1(416) 603-9825</b></p>
@@ -67,12 +72,17 @@
 								<input type="hidden" name="period" id="period-id" value="1" />
 								<input type="hidden" name="quantity" id="quantity" value="1" />
 								<input type="hidden" name="coupon" id="coupon" value="" />
+
+								<!-- <input type="hidden" name="p" id="p" value="< ?= isset($_GET["pid"]) ? $_GET["pid"] : $_FORMIDS[$_GET["form"]][2] ?>" />
+								<input type="hidden" name="f" id="f" value="< ?= isset($_GET["f"]) ? $_GET["f"] : $_FORMIDS[$_GET["form"]][0] ?>" />
+								<input type="hidden" name="q" id="q" value="< ?= isset($_GET["q"]) ? $_GET["q"] : $_FORMIDS[$_GET["form"]][1] ?>" /> -->
 								<input type="hidden" name="p" id="p"
-									value="<?= isset($_GET["pid"]) ? $_GET["pid"] : $_FORMIDS[$_GET["form"]][2] ?>" />
-								<input type="hidden" name="f" id="f"
-									value="<?= isset($_GET["f"]) ? $_GET["f"] : $_FORMIDS[$_GET["form"]][0] ?>" />
-								<input type="hidden" name="q" id="q"
-									value="<?= isset($_GET["q"]) ? $_GET["q"] : $_FORMIDS[$_GET["form"]][1] ?>" />
+									value="<?= htmlspecialchars($this->plan, ENT_QUOTES) ?>" />
+							<input type="hidden" name="q" id="q"
+									value="<?= htmlspecialchars($this->queue, ENT_QUOTES) ?>" />
+							<input type="hidden" name="f" id="f"
+									value="<?= htmlspecialchars($this->form,  ENT_QUOTES) ?>" />
+
 								<input type="hidden" name="forder" id="forder" value="<?= $_GET["forder"] ?>" />
 								<input type="hidden" name="regMethod" id="regMethod" value="login" />
 								<input type="hidden" name="ajax" id="ajax" value="yes" />
@@ -2365,7 +2375,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/script2.js"></script>
+	<script src="/lib/script2.js"></script>
+
 </body>
 
 </html>
